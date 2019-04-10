@@ -1,8 +1,9 @@
-fname=input('input the name of the file:')
-try:
-    f=open(fname)
-except:
-    print('can not open the file:',fname)
-    quit()
-
-
+fh = open('t.txt','r')
+lst = list()
+for line in fh:
+    l=line.split()
+    for w in l:
+        if w in l:
+            continue
+        lst=lst.append(w)
+print(lst.sort())

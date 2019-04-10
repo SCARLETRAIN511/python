@@ -5,4 +5,4 @@ for i in L:
         num_small=i
     elif i<num_small:
         num_small=i
-print(num_small)1
+print(num_small)
