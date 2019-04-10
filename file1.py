@@ -3,7 +3,8 @@ lst = list()
 for line in fh:
     l=line.split()
     for w in l:
-        if w in l:
+        if not w in lst:
             continue
         lst=lst.append(w)
-print(lst.sort())
+lst.sort()
+print(lst)
