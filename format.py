@@ -1,0 +1,1 @@
+print('1000000 bytes are approximately {:.2f} kB'.format(1000000 / 1024))
