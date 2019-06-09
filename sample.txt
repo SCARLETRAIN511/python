@@ -1,0 +1,19 @@
+Here are the helicopter settings;
+input the number of blades(e.g 4):4
+input the diameter of the blade in m(e.g 16.36):16.36
+input the first airfoil section R0 in m:1.55
+input the root blade chord in m:0.53
+input the tip blade chord in m:0.53
+input the linear blade twist in degree:-18
+input the rotational speed in rad/sec:27.0
+Here are the flight condtion settings:
+input the blade setting angle(degree):24
+input the forward airspeed(ft/s):0
+input the rate of descent(ft/min):0
+The total thrust is 96081.0749N
+The drag force is -2.7889e-13N
+The side force is 1.1227e-12N
+The moment about the rotor hub is 138487.5496Nm
+Average pitching moment is 1.9782e-11Nm
+Average rolling moment is 1.9611e-12Nm
+The average power to drive the rotor is 3739163.8387W
