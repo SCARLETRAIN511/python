@@ -11,18 +11,14 @@ b,g,r=cv2.split(im1)
 row=b.shape[0]
 column=b.shape[1]
 
-b_2=np.ones((row*2,column*4),dtype=b.dtype)*255
-g_2=np.ones((row*2,column*4),dtype=b.dtype)*255
-r_2=np.ones((row*2,column*4),dtype=b.dtype)*255
+b_2=np.ones((row*1,column*2),dtype=b.dtype)*255
+g_2=np.ones((row*1,column*2),dtype=b.dtype)*255
+r_2=np.ones((row*1,column*2),dtype=b.dtype)*255
 im2=cv2.merge((b_2,g_2,r_2))
 
-#resize the logo image, enlarge it by twice
-im1_res=cv2.resize(im1,(2*column,2*row),interpolation = cv2.INTER_CUBIC)
 #insert the images
-im2[0:row*2, 0:column*2] = im1_res
-im2[0:row*2,column*2:column*4]=im1_res
-
-cv2.imwrite(r'C:\Users\tangj\Desktop\canvas_edit.png',im2)
+im2[0:row, 0:column] = im1
+im2[0:row,column:column*2]=im1
 
 b,g,r=cv2.split(im2)
 a_channel=np.ones(b.shape,dtype=b.dtype)*255
