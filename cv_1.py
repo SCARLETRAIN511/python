@@ -1,5 +1,5 @@
 #this script written for the cv final code q1, creating a picture with font'HELLO WORLD'
-#coded by TJX
+#coded by TJX 09/07/2019
 
 from PIL import Image
 from PIL import ImageDraw

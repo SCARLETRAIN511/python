@@ -1,5 +1,5 @@
 #this script is to modify the alpha channel of the transparent image
-#coded by TJX
+#coded by TJX 09/07/2019
 #import modules
 import cv2
 import numpy as np
