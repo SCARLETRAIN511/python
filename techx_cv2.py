@@ -12,5 +12,5 @@ for i in range(b.shape[0]):
     g[i,i]=0
     r[i,i]=0
 
-im2_edit=cv2.merge((r,g,b)
+im2_edit=cv2.merge((r,g,b))
 cv2.imwrite(r'C:\Users\tangj\Desktop\p.png',im2_edit)
