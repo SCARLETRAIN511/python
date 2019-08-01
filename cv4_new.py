@@ -10,6 +10,7 @@ b,g,r=cv2.split(im1)
 row=b.shape[0]
 column=b.shape[1]
 
+#im1 will be the fg and im2 will be the bg
 #create the canvas with white color
 b_2=np.ones((row*1,column*2),dtype=b.dtype)*255
 g_2=np.ones((row*1,column*2),dtype=b.dtype)*255
@@ -30,5 +31,5 @@ for i in range(a_channel.shape[0]):
             a_channel[i,j]=0
 #merge the rgba
 img_bgra=cv2.merge((b,g,r,a_channel))
-#write into a new image
+#write into a new image called canvas_edit.png
 cv2.imwrite(r'C:\Users\tangj\Desktop\canvas_edit.png',img_bgra)
