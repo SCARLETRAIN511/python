@@ -11,6 +11,7 @@ def get_movies_from_tastedive(title):
 
     taste_dive_resp = requests.get(endpoint, params=param)
     return json.loads(taste_dive_resp.text)
+    
 def extract_movie_titles(data):
     return [i['Name'] for i in data['Similar']['Results']]
 
