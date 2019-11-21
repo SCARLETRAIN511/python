@@ -1,3 +1,4 @@
+
 def solution():
     count=[]
     for i in range(10**4):
