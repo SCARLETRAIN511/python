@@ -1,9 +1,8 @@
-from test2 import add
+import cv2
+import numpy as np
 
-def main():
-    print("hello world")
-    return add(1,3)
+img=cv2.imread('/home/jt2418/Pictures/mo.jpg', 0)
 
-
-main()
-print(main())
+cv2.imshow('image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
