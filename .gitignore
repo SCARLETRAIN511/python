@@ -2,3 +2,5 @@
 *.json
 
 leetcode/.vscode/
+*.json
+Year2/.vscode/settings.json
