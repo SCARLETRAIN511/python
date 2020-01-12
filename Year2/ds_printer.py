@@ -64,6 +64,9 @@ def simulation(numSeconds, pagesPerMinute):
         labprinter.tick()
     averageWait = sum(waitingtimes)/len(waitingtimes)
     print("Average Wait %6.2f secs %3d tasks reamining"%(averageWait, printQueue.size()))
+
+
+    
 if __name__ == "__main__":
     for i in range(19):
         simulation(3600,5)

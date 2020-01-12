@@ -54,18 +54,28 @@ class Linked_list(object):
             count = count+1
             current = current.getNext()
         return count
+
+
+class Deque:
+    def __init__(self):
+        self.items = []
+    def addFont(self,item):
+        self.items.append(item)
+    def addRear(self,item):
+        self.items.insert(0,item)
+    def removeFront(self):
+        return self.items.pop()
+    def removeRear(self):
+        return self.items.pop(0)
+    def size(self):
+        return len(self.items)
+    def isEmpty(self):
+        return self.items == []
+
     
 
-
-
 if __name__ == "__main__":
-    a=Queue()
-    a.enqueue(1)
-    a.enqueue(2)
-    a.dequeue()
+    a = Deque()
+    a.addFont(1)
     print(a.items)
-    b=Stack()
-    b.push(7)
-    b.push('fuck')
-    print(b.peek())
-    print(b.items)
+    print(a.removeFront())
