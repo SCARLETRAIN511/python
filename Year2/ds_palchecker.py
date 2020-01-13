@@ -15,6 +15,7 @@ def palchecker(astring):
             stillEqual = False
     return stillEqual
 
-print(palchecker("123454321"))
-print(palchecker("上海自来水来自海上"))
-print(palchecker("lljshishabi"))
+if __name__ == "__main__":
+    print(palchecker("123454321"))
+    print(palchecker("上海自来水来自海上"))
+    print(palchecker("lljshishabi"))

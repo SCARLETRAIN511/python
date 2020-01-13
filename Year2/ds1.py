@@ -40,6 +40,7 @@ class Node:
     def setNext(self,newnext):
         self.next=newnext
 
+
 class Linked_list(object):
     def __init__(self):
         self.head=None
@@ -47,6 +48,7 @@ class Linked_list(object):
         temp=Node(item)
         temp.setNext(self.head)
         self.head=temp
+
     def size(self):
         current=self.head
         count=0
@@ -54,6 +56,96 @@ class Linked_list(object):
             count = count+1
             current = current.getNext()
         return count
+
+    def remove(self, item):
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+        if previous == None:
+            self.head = current.getNext
+        else:
+            previous.setNext(current.getNext())
+
+    def search(self,data):
+        checking = self.head
+        while checking != None:
+            if checking.getData() == data:
+                return True
+            checking = checking.getNext()
+        return False
+
+    def isEmpty(self):
+        return self.head == None
+
+
+class OrderedList:
+    def __init__(self):
+        self.head = None
+
+    def isEmpty(self):
+        return self.head == None
+
+    def size(self):
+        current=self.head
+        count=0
+        while current != None:
+            count = count+1
+            current = current.getNext()
+        return count
+
+    def remove(self, item):
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.getData() == item:
+                found = True
+            else:
+                previous = current
+                current = current.getNext()
+        if previous == None:
+            self.head = current.getNext
+        else:
+            previous.setNext(current.getNext())
+
+    def search(self,item):
+        checking = self.head
+        found = False
+        stop = False
+        while checking != None and not stop:
+            if checking == item:
+                found = True
+            else:
+                if checking.getData > item:
+                    stop = True
+                else:
+                    checking = checking.getNext()
+        return found
+
+    def add(seld, item):
+        current = self.head
+        previous = None
+        stop = False
+        while current != None and not stop:
+            if current.getNext() > item:
+                stop = True
+            else:
+                previous = current
+                current = current.getNext()
+            
+            temp = Node(item)
+            if previous = None:
+                temp.setNext(self.head)
+                self.head = temp
+            else:
+                temp.setNext(current)
+                previous.setNext(temp)
 
 
 class Deque:
