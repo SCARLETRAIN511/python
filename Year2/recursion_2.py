@@ -1,3 +1,9 @@
+#use recursion to return the minimum number of currency for the change.
+#Recursion practise 2
+#Jiaxuan Tang
+#
+#
+
 def recMc(coinValueList, change):
     minCoins = change
     if change in coinValueList:
@@ -26,5 +32,5 @@ def recDc(coinValueList, change, knownResults):
 
 
 if __name__ == "__main__":
-    print(recDc([1,5,10,50,100], 70, [0]*200))
+    print(recDc([1,5,10,50,100], 200, [0]*300))
 
