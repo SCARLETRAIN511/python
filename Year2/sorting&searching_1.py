@@ -31,7 +31,7 @@ def binarySearch(alist, item):
                 first = midpoint + 1
     return found
     
-#use recursion
+#use recursion in binary search
 def binarySearch1(alist, item):
     if len(alist) == 0:
         return False
