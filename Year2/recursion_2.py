@@ -32,17 +32,45 @@ def recDc(coinValueList, change, knownResults):
     return minCoins
 
 
+##using dynamic programming to increase the efficiency
 def dpMakeChange(coinValueList, change, minCoins):
+    #逐个计算最少硬币数
     for cents in range(1, change + 1):
-        cointCount = cents
+        cointCount = cents#maximum number of coins
         for j in [c for c in coinValueList if c <= cents]:
+            #j is the one of the values of the coins
             if minCoins[cents - j] + 1 < cointCount:
                 cointCount = minCoins[cents - j] + 1
         minCoins[cents] = cointCount
     return minCoins[change]
 
+ 
+def dpMakeChange2(coinValueList, change, minCoins, coinsUsed):
+    for cents in range(1, change + 1):
+        cointCount = cents
+        newCoin = 1
+        for j in [c for c in coinValueList if c <= cents]:
+            #j is the one of the values of the coins
+            if minCoins[cents - j] + 1 < cointCount:
+                cointCount = minCoins[cents - j] + 1
+                newCoin = j
+        minCoins[cents] = cointCount
+        coinsUsed[cents] = newCoin
+    return minCoins[change]
+
+def printCoins(coinsUsed, change):
+    coin = change
+    while coin > 0:
+        thisCoin = coinsUsed[coin]
+        print(thisCoin)
+        coin = coin - thisCoin
+
+clist = [1,5,10,21,25]
+amout = 63
+coinsUsed = [0] * (amout + 1)
+coinsCount = [0] * (amout + 1)
+
 
 if __name__ == "__main__":
-    print(recDc([1,5,10,50,100], 200, [0]*300))
-    print(dpMakeChange([1,3,5,10,50],130,[0]*150))
-
+    print(dpMakeChange2(clist, amout, coinsCount, coinsUsed))
+    printCoins(coinsUsed,amout)
