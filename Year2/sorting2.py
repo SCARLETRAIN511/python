@@ -51,8 +51,28 @@ def insertionSorting(alist):
         alist[position] = currentvalue
     return alist
 
+#Shell sorting
+def shellSort(alist):
+    sublistcount = len(alist)//2
+    while sublistcount > 0:
+        for startposition in range(sublistcount):
+            gepInsertionSort(alist, startposition,sublistcount)
+        print('After increments of size',sublistcount,'the list is',alist)
+        sublistcount = sublistcount//2
+    return alist
+
+def gepInsertionSort(alist,start,gap):
+    for i in range(start + gap, len(alist), gap):
+        currentvalue = alist[i]
+        position = i
+        while position > 0 and alist[position - 1] > currentvalue:#do the comparsion
+            alist[position] = alist[position - 1]#move the value in the list 1 unit next
+            position -= gap
+        alist[position] = currentvalue
+    return alist
+
+
+
 
 if __name__ == "__main__":
-    print(bubbleSorting1([1,2424,2,13,3154,13]))
-    print(selectionSorting([15,14,13,12,12,5,6,3,2]))
-    print(insertionSorting([5,3,4,1,244,12]))
+    print(shellSort([10,21,4,13,313,13,1]))
