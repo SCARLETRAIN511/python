@@ -106,7 +106,7 @@ def mergeSort(alist):
 def mergeSort1(alist):
     if len(alist) <= 1:
         return alist
-
+    #divide the problem
     middle = len(alist)//2
     left = mergeSort1(alist[:middle])
     right = mergeSort1(alist[middle:])
@@ -125,8 +125,19 @@ def mergeSort1(alist):
 
     return merged
 
+#quick sort
+def quickSort(alist):
+    quickSortHelper(alist, 0, len(alist)-1)
+
+def quickSortHelper(alist, first, last):
+    if first < last:
+        splitpoint = list.partition(alist,first,last)
+        quickSortHelper(alist, first, splitpoint - 1)
+        quickSortHelper(alist, splitpoint + 1, last)
+    return alist
+
+
 if __name__ == "__main__":
     a = [1,42,2,33,331,56,63,2]
-
-    print(mergeSort(a))
+    print(quickSort(a))
 
