@@ -51,6 +51,7 @@ def insertionSorting(alist):
         alist[position] = currentvalue
     return alist
 
+
 #Shell sorting
 def shellSort(alist):
     sublistcount = len(alist)//2
@@ -72,7 +73,60 @@ def gepInsertionSort(alist,start,gap):
     return alist
 
 
+#merge sorting
+def mergeSort(alist):
+    if len(alist) > 1:
+        mid = len(alist)//2
+        lefthalf = alist[:mid]
+        righthalf = alist[mid:]
+        mergeSort(lefthalf)
+        mergeSort(righthalf)
+        i = 0
+        j = 0
+        k = 0
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i] < righthalf[j]:
+                alist[k] = lefthalf[i]
+                i+=1
+            else:
+                alist[k] = righthalf[j]
+                j+=1
+            k+=1
+        while i < len(lefthalf):
+            alist[k] = lefthalf[i]
+            i+=1
+            k+=1
+        while j < len(righthalf):
+            alist[k] = righthalf[j]
+            j+=1
+            k+=1
+    return alist
 
+
+def mergeSort1(alist):
+    if len(alist) <= 1:
+        return alist
+
+    middle = len(alist)//2
+    left = mergeSort1(alist[:middle])
+    right = mergeSort1(alist[middle:])
+
+    merged = []
+
+    while left and right:
+        if left[0] <= right[0]:
+            merged.append(left.pop(0))
+        else:
+            merged.append(right.pop(0))
+    if right:
+        merged.extend(right)
+    else:
+        merged.extend(left)
+
+    return merged
 
 if __name__ == "__main__":
-    print(shellSort([10,21,4,13,313,13,1]))
+    a = [1,42,2,33,331,56,63,2]
+
+    print(mergeSort(a))
+
