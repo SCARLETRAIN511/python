@@ -128,6 +128,7 @@ def mergeSort1(alist):
 #quick sort
 def quickSort(alist):
     quickSortHelper(alist, 0, len(alist)-1)
+    return alist
 
 def quickSortHelper(alist, first, last):
     if first < last:
@@ -160,5 +161,5 @@ def partition(alist, first, last):
 
 if __name__ == "__main__":
     a = [1,42,2,33,331,56,63,2]
-    quickSort(a)
-    print(a)
+    print(quickSort(a))
+    
