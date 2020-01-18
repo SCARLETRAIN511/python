@@ -131,13 +131,34 @@ def quickSort(alist):
 
 def quickSortHelper(alist, first, last):
     if first < last:
-        splitpoint = list.partition(alist,first,last)
+        splitpoint = partition(alist,first,last)
         quickSortHelper(alist, first, splitpoint - 1)
         quickSortHelper(alist, splitpoint + 1, last)
-    return alist
+
+def partition(alist, first, last):
+    pivotValue = alist[first]
+    leftmark = first + 1
+    rightmark = last
+    done = False
+
+    while not done:
+        while leftmark <= rightmark and alist[leftmark] <= pivotValue:
+            leftmark += 1
+        while alist[rightmark] >= pivotValue and rightmark >= leftmark:
+            rightmark -= 1
+        if rightmark < leftmark:
+            done = True
+        else:
+            temp = alist[leftmark]
+            alist[leftmark] = alist[rightmark]
+            alist[rightmark] = temp
+    temp = alist[first]
+    alist[first] = alist[rightmark]
+    alist[rightmark] = temp
+    return rightmark
 
 
 if __name__ == "__main__":
     a = [1,42,2,33,331,56,63,2]
-    print(quickSort(a))
-
+    quickSort(a)
+    print(a)
