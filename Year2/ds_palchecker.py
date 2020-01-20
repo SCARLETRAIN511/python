@@ -6,18 +6,42 @@ def parChecker(symbolString):
     balanced = True
     i = 0
     while i < len(symbolString) and balanced:
-        if symbolString[i] == "(":
-            s.push(i)
+        symbol = symbolString[i]
+        if symbol in "{[(":
+            s.push(symbol)
         else:
             if s.isEmpty():
                 balanced = False
             else:
-                s.pop()
+                top = s.pop()
+                if not matches(top, symbol):
+                    balanced = False
         i += 1
     if balanced and s.isEmpty():
         return True
     else:
         return False
+
+
+#binary number conversion
+def binary(decNumber):
+    remstack = Stack()
+    while decNumber > 0:
+        rem = decNumber%2
+        remstack.push(rem)
+        decNumber = decNumber//2
+
+    binstr = ""
+    while not remstack.isEmpty():
+        binstr = binstr + str(remstack.pop())
+    return binstr
+
+
+def matches(open, close):
+    opens = "{[("
+    closers = "}])"
+    return opens.index(open) == closers.index(close)
+
 
 def palchecker(astring):
     chardeque = Deque()
@@ -38,3 +62,4 @@ if __name__ == "__main__":
     print(parChecker("(()()())"))
     print(palchecker("上海自来水来自海上"))
     print(palchecker("lljshishabi"))
+    print(binary(1213))
