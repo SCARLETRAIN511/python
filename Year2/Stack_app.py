@@ -42,6 +42,21 @@ def matches(open, close):
     closers = "}])"
     return opens.index(open) == closers.index(close)
 
+def baseConverter(decNumber, base):
+    digits = "0123456789ABCDEF"
+
+    remstack = Stack()
+    while decNumber > 0:
+        rem = decNumber % base
+        remstack.push(rem)
+        decNumber = decNumber//2
+    
+    newStr = ''
+    while not remstack.isEmpty():
+        newStr = newStr + digits[remstack.pop()]
+    
+    return newStr
+
 
 def palchecker(astring):
     chardeque = Deque()
@@ -63,3 +78,4 @@ if __name__ == "__main__":
     print(palchecker("上海自来水来自海上"))
     print(palchecker("lljshishabi"))
     print(binary(1213))
+    print(baseConverter(123,16))
