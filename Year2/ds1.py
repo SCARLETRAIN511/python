@@ -1,5 +1,5 @@
 #data structure
-
+#linear structure
 
 class Queue():
     def __init__(self):
@@ -13,6 +13,9 @@ class Queue():
     def size(self):
         return len(self.items)
 
+
+#for stack, top and base, delete and add happen at one end/ LIFO structure, last in first out
+#we can either use left or right as the top of the stack
 class Stack():
     def __init__(self):
         self.items=[]
@@ -22,7 +25,7 @@ class Stack():
         self.items.append(item)
     def pop(self):
         return self.items.pop()
-    def peek(self):
+    def peek(self):#return the last item in the stack
         return self.items[len(self.items)-1]
     def size(self):
         return len(self.items)
@@ -128,7 +131,7 @@ class OrderedList:
                     checking = checking.getNext()
         return found
 
-    def add(seld, item):
+    def add(self, item):
         current = self.head
         previous = None
         stop = False
@@ -140,7 +143,7 @@ class OrderedList:
                 current = current.getNext()
             
             temp = Node(item)
-            if previous = None:
+            if previous == None:
                 temp.setNext(self.head)
                 self.head = temp
             else:
