@@ -38,6 +38,7 @@ def binary(decNumber):
     return binstr
 
 
+
 def matches(open, close):
     opens = "{[("
     closers = "}])"
@@ -107,6 +108,7 @@ def palchecker(astring):
         if first != last:
             stillEqual = False
     return stillEqual
+
 
 if __name__ == "__main__":
     print(parChecker("(()()())"))
