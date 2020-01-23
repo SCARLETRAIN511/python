@@ -93,7 +93,7 @@ def infixToPosfix(infixexpr):
     return " ".join(postfixList)
 
 
-
+#回文词
 def palchecker(astring):
     chardeque = Deque()
 
@@ -102,6 +102,7 @@ def palchecker(astring):
     
     stillEqual = True
 
+#the length maybe odd or even
     while chardeque.size() > 1 and stillEqual:
         first = chardeque.removeFront()
         last = chardeque.removeRear()

@@ -32,6 +32,7 @@ class Stack():
     def size(self):
         return len(self.items)
 
+
 class Node:
     def __init__(self,initdata):
         self.data=initdata
@@ -45,16 +46,18 @@ class Node:
     def setNext(self,newnext):
         self.next=newnext
 
-
+#无序表
 class Linked_list(object):
     def __init__(self):
         self.head=None
     def add(self,item):
+        #添加必须添加在表头 顺序不能变
         temp=Node(item)
         temp.setNext(self.head)
         self.head=temp
 
     def size(self):
+        #当前节点指向表头
         current=self.head
         count=0
         while current != None:
@@ -72,8 +75,10 @@ class Linked_list(object):
             else:
                 previous = current
                 current = current.getNext()
+        #如果是表头，删除表头，指向第二个节点
         if previous == None:
             self.head = current.getNext
+        #另一种情况，删除表中间的节点
         else:
             previous.setNext(current.getNext())
 
@@ -152,7 +157,7 @@ class OrderedList:
                 temp.setNext(current)
                 previous.setNext(temp)
 
-
+#can either add or delete at the start or the end
 class Deque:
     def __init__(self):
         self.items = []
