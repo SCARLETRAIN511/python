@@ -93,7 +93,7 @@ class Linked_list(object):
     def isEmpty(self):
         return self.head == None
 
-
+#有序表
 class OrderedList:
     def __init__(self):
         self.head = None
