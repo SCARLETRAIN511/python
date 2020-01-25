@@ -94,6 +94,9 @@ class Linked_list(object):
         return self.head == None
 
 #有序表
+#表头是最小的数
+#与链表实现一样
+
 class OrderedList:
     def __init__(self):
         self.head = None
@@ -128,7 +131,7 @@ class OrderedList:
         checking = self.head
         found = False
         stop = False
-        while checking != None and not stop:
+        while checking != None and not found and not stop:
             if checking == item:
                 found = True
             else:
