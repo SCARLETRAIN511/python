@@ -14,7 +14,7 @@ mytree = ['a',
         ['f',[],[]],
         []]]
 
-def BinaryTree(r):#r is the roor
+def BinaryTree_function(r):#r is the roor
     return [r,[],[]]
 
 def insertLeft(root,newBranch):
@@ -45,4 +45,52 @@ def getLeftChild(root):
 def getRightChild(root):
     return root[2]
 
+
+#USING linkedlist to realize tree
+#创建二叉树
+class BinaryTree():
+    def __init__(self, rootObj):
+        self.key = rootObj
+        self.leftChild = None
+        self.righChild = None
     
+    def insertLeft(self, newNode):
+        if self.leftChild == None:
+            self.leftChild = BinaryTree(newNode)
+        else:
+            t = BinaryTree(newNode)
+            t.leftChild = self.leftChild
+            self.leftChild = t
+        
+    def insertRight(self,newNode):
+        if self.righChild == None:
+            self.righChild = BinaryTree(newNode)
+        else:
+            t = BinaryTree(newNode)
+            t.rightChild = self.leftChild
+            self.leftChild = t
+    
+    def getRightChild(self):
+        return self.righChild
+
+    def getLeftChild(self):
+        return self.leftChild
+
+    def setRootVal(self,obj):
+        self.key = obj
+    
+    def getRootVal(self):
+        return self.key
+         
+        
+if __name__ == "__main__":
+    #initiate the binary tree
+    r = BinaryTree('a')
+    r.insertLeft('b')
+    r.insertRight('c')
+    r.getLeftChild().setRootVal('hello')
+    r.getLeftChild().insertRight('d')
+    print(r.getLeftChild().getRootVal())#same as below
+    print(r.getLeftChild().key)
+
+
