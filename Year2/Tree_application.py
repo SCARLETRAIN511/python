@@ -42,3 +42,31 @@ def evaluate(parseTree):
         return fn(evaluate(leftC),evaluate(rightC))
     else:
         return parseTree.getRootVal()
+
+#tree traversals
+#preorder/inorder/postorder
+
+#use recursion to traversal tree data structure
+
+def preorder(tree):
+    if tree:
+        print(tree.getRootVal())
+        preorder(tree.getLeftChild())
+        preorder(tree.gerRightChild())
+
+def postorder(tree):
+    if tree != None:
+        postorder(tree.getLeftChild())
+        postorder(tree.getRightChild())
+        print(tree.getRootVal())
+
+def inorder(tree):
+    if tree != None:
+        inorder(tree.getLeftChild())
+        print(tree.getRootVal())
+        inorder(tree.getRightChild())
+
+
+
+
+
