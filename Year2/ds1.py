@@ -94,6 +94,9 @@ class Linked_list(object):
         return self.head == None
 
 #有序表
+#表头是最小的数
+#与链表实现一样
+
 class OrderedList:
     def __init__(self):
         self.head = None
@@ -128,7 +131,7 @@ class OrderedList:
         checking = self.head
         found = False
         stop = False
-        while checking != None and not stop:
+        while checking != None and not found and not stop:
             if checking == item:
                 found = True
             else:
@@ -138,24 +141,25 @@ class OrderedList:
                     checking = checking.getNext()
         return found
 
+    #from the start, find the first one bigger than the number insert
     def add(self, item):
         current = self.head
         previous = None
         stop = False
         while current != None and not stop:
-            if current.getNext() > item:
+            if current.getData() > item:
                 stop = True
             else:
                 previous = current
                 current = current.getNext()
             
-            temp = Node(item)
-            if previous == None:
-                temp.setNext(self.head)
-                self.head = temp
-            else:
-                temp.setNext(current)
-                previous.setNext(temp)
+        temp = Node(item)
+        if previous == None:
+            temp.setNext(self.head)
+            self.head = temp
+        else:
+            temp.setNext(current)
+            previous.setNext(temp)
 
 #can either add or delete at the start or the end
 class Deque:
@@ -177,7 +181,15 @@ class Deque:
     
 
 if __name__ == "__main__":
-    a = Deque()
-    a.addFont(1)
-    print(a.items)
-    print(a.removeFront())
+    o1 = OrderedList()
+    o1.add(1)
+    o1.add(10)
+    o1.add(5)
+    t = o1.head
+    list1 = []
+    #print the linked list
+    while t!= None:
+        print(t.getData())
+        list1.append(t.getData())
+        t = t.next
+    print(list1)
