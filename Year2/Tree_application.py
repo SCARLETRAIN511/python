@@ -239,6 +239,9 @@ class BinarySearchTree:
                 else:
                     currentNode.replaceNodeData(currentNode.rightChild.key,currentNode.rightChild.payload,currentNode.rightChild.leftChild,currentNode.rightChild.rightChild)
                     
+
+    
+
 class TreeNode:
     def __init__(self,key,val,left = None,right = None, parent = None):
         self.key = key
@@ -291,7 +294,36 @@ class TreeNode:
                 for elem in self.rightChild:
                     yield elem
 
+    def findSuccessor(self):
+        succ = None
+        succ = self.rightChild.findMin()
+        return succ
+    
+    def findMin(self):
+        current = self
+        while current.hasLeftChild():
+            current = current.leftChild
+        return current
 
+    def spliceOut(self):
+        if self.isleaf():
+            if self.isLeftChild():
+                self.parent.leftChild = None
+            else:
+                self.parent.rightChild = None
+        elif self.hasAnyChildren():
+            if self.hasLeftChild():
+                if self.isLeftChild():
+                    self.parent.leftChild = self.leftChild
+                else:
+                    self.parent.rightChild = self.leftChild
+                self.leftChild.parent = self.parent
+            else:
+                if self.isLeftChild():
+                    self.parent.leftChild = self.rightChild
+                else:
+                    self.parent.rightChild = self.rightChild
+                self.rightChild.parent = self.parent
 
 
 
