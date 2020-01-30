@@ -190,8 +190,55 @@ class BinarySearchTree:
             return True
         else:
             return False
+    
+    def delete(self,key):
+        if self.size > 1:
+            nodeToRemove = self.__get(key,self.root)
+            if nodeToRemove:
+                self.remove(nodeToRemove)
+                self.size -= 1
+            else:
+                raise KeyError("Error, key not in tree")
+        elif self.size == 1 and self.root.key == key:
+            self.root = None
+            self.size -= 1
+        else:
+            raise KeyError("Error key not in tree")
 
+    def __delitem(self,key):
+        self.delete(key)
 
+    def remove(self,currentNode):
+        if currentNode.isleaf():
+            if currentNode == currentNode.parent.leftChild:
+                currentNode.parent.leftChild = None
+            else:
+                currentNode.parent.rightChild = None
+        elif currentNode.hasBothChild():
+            succ = currentNode.findSuccessor()
+            succ.spliceOut()
+            currentNode.key = succ.key
+            currentNode.payload = succ.payload
+        else:
+            if currentNode.hasLeftChild():
+                if currentNode.isLeftChild():
+                    currentNode.leftChild.parent = currentNode.parent
+                    currentNode.parent.leftChild = currentNode.leftChild
+                elif currentNode.isRightChild():
+                    currentNode.leftChild.parent = currentNode.parent
+                    currentNode.parent.rightChild = currentNode.parent
+                else:
+                    currentNode.replaceNodeData(currentNode.leftChild.key,currentNode.leftChild.payload,currentNode.leftChild.leftChild,currentNode.leftChild.rightChild)
+            else:
+                if currentNode.isLeftChild():
+                    currentNode.rightChild.parent = currentNode.parent
+                    currentNode.parent.leftChild = currentNode.rightChild
+                elif currentNode.isRightChild():
+                    currentNode.rightChild.parent = currentNode.parent
+                    currentNode.parent.rightChild = currentNode.rightChild
+                else:
+                    currentNode.replaceNodeData(currentNode.rightChild.key,currentNode.rightChild.payload,currentNode.rightChild.leftChild,currentNode.rightChild.rightChild)
+                    
 class TreeNode:
     def __init__(self,key,val,left = None,right = None, parent = None):
         self.key = key
