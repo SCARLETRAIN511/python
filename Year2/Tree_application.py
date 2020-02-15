@@ -240,7 +240,6 @@ class BinarySearchTree:
                     currentNode.replaceNodeData(currentNode.rightChild.key,currentNode.rightChild.payload,currentNode.rightChild.leftChild,currentNode.rightChild.rightChild)
                     
 
-    
 
 class TreeNode:
     def __init__(self,key,val,left = None,right = None, parent = None):
