@@ -4,3 +4,8 @@ My teacher and my friend highly recommend me to take this class，this class wil
 As the intro said, the data structure and algorithms are always important in computer science
 In this course,  I will learn the foundations of different data structures using Java. and I will understand the major technology trends driving most algorithm problems in the world,Be able to using data structures to solve real-world questions, know how to implement methods on the questions on leetcode. As a result, this course will be vital for me as it can help me crack future interview of becoming a software engineer.
 In the process of my studying, I realize that my learning method is not not systematic,I always change my way to learn so that my efficient is very low .So I want that this class will help me to improve these circumstances
+
+My teacher and my friend highly recommend me to take this class，this class will help me to improve my learning skills and through this class, I can use my time more effectively.
+As the intro said, perception and algorithms are always important in robotics.
+In this course,  I will learn the foundations of different perception applications using Matlab. and I will understand the major technology trends driving most algorithm problems in the world. Be able to using robots to solve real-world questions in the engineering industry, know how to implement methods on the questions on the control of robotics. As a result, this course will be vital for me as it can help me crack future interviews of becoming a robot engineer.
+In the process of my studying, I realize that my learning method is not not systematic,I always change my way to learn so that my efficient is very low .So I want that t
