@@ -1,5 +1,7 @@
 from Tree_application import BinarySearchTree, TreeNode
 
+//实现avl Tree
+
 class AVLTree(BinarySearchTree):
     def _put(self,key,val,currentNode):
         if key < currentNode.key:
