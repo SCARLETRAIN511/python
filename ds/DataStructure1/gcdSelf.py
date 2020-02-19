@@ -1,3 +1,6 @@
+# python 3
+import sys
+
 def solution(a,b):
     best = 0
     for i in range(1,min(a,b)+1):
@@ -16,5 +19,6 @@ def solutionEfficient(a,b):
 
 
 if __name__ == "__main__":
-    print(solution(4,8))
-    print(solutionEfficient(357,234))
+    input = sys.stdin.read()
+    a, b = map(int, input.split())
+    print(solutionEfficient(a, b))
