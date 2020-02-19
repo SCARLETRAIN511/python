@@ -6,6 +6,8 @@ def solution(a,b):
                 best = i
     return best
 
+#this is the euclidean solution using recursion
+
 def solutionEfficient(a,b):
     if b == 0:
         return a
