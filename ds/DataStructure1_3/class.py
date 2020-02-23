@@ -39,6 +39,19 @@ def MinRefills(x,n,L):
 
     return numRefills
 
+#celebrity problem
+#2 children in the group should not differ over 1 year in age, 2 children in one group
+#def minGroups(c):
+#    m = len(c)
+#    for each kinds of combination of groups:
+#        good = True #k is number of groups
+#        for i in range(1,k):
+#            if max(G1)-min(G1)>1:
+#                good = False
+#        if good:
+#            m = min(m,k)
+#    return m
+
 if __name__ == "__main__":
     #use this list as an example
     #print(solution([1,2,3,5,1,3,8]))
