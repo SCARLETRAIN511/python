@@ -15,7 +15,7 @@ def efficient(NumberList):
     else:
         maxNow = max(NumberList)
         MaxNum += str(maxNow)
-        pos = NumberList.index(maxNow)
+        pos = NumberList.pos(maxNow)
         NumberList.pop(pos)
         return MaxNum + efficient(NumberList)
 
@@ -79,21 +79,21 @@ def knapsack(W,weight,value):
         v_w.append(value[i]/weight[i])
 
     for i in range(n):
-        index = v_w.index(max(v_w))
+        pos = v_w.index(max(v_w))
         if W == 0:
             return (V,A)
 
-        if weight[index] > 0:
-            a = min(weight[index],W)
-            V += a*v_w[index]
-            weight[index] -= a
-            A[index] += a
-            v_w.pop(index)
-            W -= a
-            print(V)
+        if weight[pos] > 0:
+
+            a = min(weight[pos],W)
+            V += a*v_w[pos]
+            weight[pos] -= a
+            A[pos] += a
+            #delete the snack inside the list
+            v_w[pos]=0
+            W -= a           
     return (V,A)
 
 
-
 if __name__ == "__main__":
-    print(knapsack(15,[3,2,5],[12,8,22]))
+    print(knapsack(15,[3,2,5],[12,6,22]))

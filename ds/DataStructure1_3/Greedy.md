@@ -22,7 +22,7 @@ def efficient(NumberList):
     else:
         maxNow = max(NumberList)
         MaxNum += str(maxNow)
-        pos = NumberList.index(maxNow)
+        pos = NumberList.pos(maxNow)
         NumberList.pop(pos)
         return MaxNum + efficient(NumberList)
 
