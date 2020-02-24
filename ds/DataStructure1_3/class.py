@@ -54,21 +54,46 @@ def MinRefills(x,n,L):
 
 ##using efficient algorithm
 def PointsCoverSorted(x):
-    R={}
-    i = 1
-    while i<=len(x):
-        l,r = x[i],x[i+1]
-        R = R.add([l,r])
+    R=[]
+    i = 0
+    while i<=len(x)-1:
+        l,r = x[i],x[i]+1
+        R.append([l,r])
         i+=1
-        while i<=n and x[i]<=r:
+        while i<=len(x)-1 and x[i]<=r:
             i+=1
     return R
 
+#lon hike problem
+#15kg of food, fit food in the knapsack
+#Maximize
+#weight w1 w2 w3... values V1 V2 V3...
+#choose the value with the biggest V/W
+
+def knapsack(W,weight,value):
+    n = len(weight)
+    A = [ 0 for i in range(n)]
+    V = 0
+    v_w = []
+    for i in range(n):
+        v_w.append(value[i]/weight[i])
+
+    for i in range(n):
+        index = v_w.index(max(v_w))
+        if W == 0:
+            return (V,A)
+
+        if weight[index] > 0:
+            a = min(weight[index],W)
+            V += a*v_w[index]
+            weight[index] -= a
+            A[index] += a
+            v_w.pop(index)
+            W -= a
+            print(V)
+    return (V,A)
+
+
+
 if __name__ == "__main__":
-    #use this list as an example
-    #print(solution([1,2,3,5,1,3,8]))
-    #print(efficient([1,2,3,4,5,5,5]))
-    x=[0,200,375,550,750,950]
-    L = 400
-    n = 4
-    print(MinRefills(x,n,L))
+    print(knapsack(15,[3,2,5],[12,8,22]))
