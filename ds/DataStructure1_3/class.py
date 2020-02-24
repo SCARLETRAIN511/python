@@ -64,6 +64,7 @@ def PointsCoverSorted(x):
             i+=1
     return R
 
+
 #lon hike problem
 #15kg of food, fit food in the knapsack
 #Maximize
@@ -89,8 +90,8 @@ def knapsack(W,weight,value):
             V += a*v_w[pos]
             weight[pos] -= a
             A[pos] += a
-            #delete the snack inside the list
             v_w[pos]=0
+            #do not need to consider that item anymore
             W -= a           
     return (V,A)
 
