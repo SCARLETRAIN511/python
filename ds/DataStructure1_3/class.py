@@ -52,6 +52,18 @@ def MinRefills(x,n,L):
 #            m = min(m,k)
 #    return m
 
+##using efficient algorithm
+def PointsCoverSorted(x):
+    R={}
+    i = 1
+    while i<=len(x):
+        l,r = x[i],x[i+1]
+        R = R.add([l,r])
+        i+=1
+        while i<=n and x[i]<=r:
+            i+=1
+    return R
+
 if __name__ == "__main__":
     #use this list as an example
     #print(solution([1,2,3,5,1,3,8]))
