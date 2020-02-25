@@ -95,6 +95,27 @@ def knapsack(W,weight,value):
             W -= a           
     return (V,A)
 
+#suppose v/w is sorted here
+def knapsack2(W,weight,value):
+    n = len(weight)
+    A = [ 0 for i in range(n)]
+    V = 0
+    v_w = []
+    for i in range(n):
+        v_w.append([value[i]/weight[i],weight[i]])
+    v_w.sort(key = lambda x: x[0],reverse = True)
+    
+    for i in range(n):
+        if W == 0:
+            return (V,A)
+        a = min(v_w[i][1],W)
+        V += a*v_w[i][0]
+        v_w[i][1]-=a
+        A[i] += a
+        W -= a
+    return (V,A)
+
+
 
 if __name__ == "__main__":
-    print(knapsack(15,[3,2,5],[12,6,22]))
+    print(knapsack2(15,[20,16,15,10],[20,12,6,22]))

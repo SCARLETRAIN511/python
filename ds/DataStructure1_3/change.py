@@ -2,8 +2,16 @@
 import sys
 
 def get_change(m):
-    #write your code here
-    return m
+    types_of_coin = [1,5,10]
+    counter_of_coins = 0
+    while m != 0:
+        if m//max(types_of_coin) != 0:
+            counter_of_coins+=1
+            m -= max(types_of_coin)
+        else:
+            types_of_coin.remove(max(types_of_coin))
+
+    return counter_of_coins
 
 if __name__ == '__main__':
     m = int(sys.stdin.read())

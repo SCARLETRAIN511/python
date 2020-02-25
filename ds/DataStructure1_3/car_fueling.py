@@ -2,22 +2,28 @@
 import sys
 
 
-def compute_min_refills(distance, tank, stops):
+def compute_min_refills(distance, m, stops):
     # write your code here
-    #n is the tank here
+    #m is number of stations
     numRefills = 0
     currenRefill = 0#where we are currently standing
-    while currenRefill <= stops:
+    stops.insert(0, 0)
+    stops.append(distance)
+    while currenRefill <= len(stops)-2:
         lastRefill = currenRefill
-        while currenRefill <=stops & distance[currenRefill+1]-distance[lastRefill]<=tank:
+        while currenRefill <=len(stops)-2 and stops[currenRefill+1]-stops[lastRefill]<=m:
         #make sure it does not exceed the gas stations and it is small or equal to the distance with the fuel can travel
             currenRefill+=1
         if currenRefill == lastRefill:#even can not go to the next stations
-            return "Impossible"
-        if currenRefill <= stops:
+            return -1
+        if currenRefill <= len(stops)-2:
             numRefills+=1#if success, increase the number here
+        
     return numRefills
 
+if __name__ == "__main__":
+    d, m, _, *stops = map(int, sys.stdin.read().split())
+    print(compute_min_refills(d, m, stops))
 
-if __name__ == '__main__':
-    print(compute_min_refills([0,200,300,400,500], 200, 4))
+
+
