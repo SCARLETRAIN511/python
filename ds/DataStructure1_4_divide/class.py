@@ -45,6 +45,26 @@ def MultPoly(A,B,n):
             product[i+j]=product[i+j]+A[i]*B[j]
     return product
 
+#divide and conquer algorithm
+def MultPolyDC(A,B,n,a1,b1):
+    R=[i for i in range(2*n-1)]
+    if n==1:
+        R[0]=A[a1]*B[b1]
+        return R
+    for i in range(n-1):
+        MultPolyDC(A,B,n/2,a1,b1)
+    for i in range(n,2*n-1):
+        MultPolyDC(A,B,n/2,a1+n/2,b1+n/2)
+    DoE1=MultPolyDC(A,B,n/2,a1,b1+n/2)
+    D1Eo=MultPolyDC(A,B,n/2,a1+n/2,b1)
+    for i in range(n/2,n+n/2-1):
+        R[i] += D1Eo+DoE1
+    return R
+
+
+##Master theorem
+#T(n)=aT([n/b])+O(n^d)
+#O(n^d) O(n^d log(n))
 
 
 if __name__ == "__main__":
