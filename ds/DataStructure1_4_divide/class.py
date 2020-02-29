@@ -84,9 +84,36 @@ def selectionSorting2(a):
         a[i],a[indexMin] = a[indexMin],a[i]
     return a
 
+
+def MergeSorting(a):
+    n = len(a)
+    if n == 1:
+        return a
+    m = n//2
+    B = MergeSorting(a[0:m])
+    C = MergeSorting(a[m:n])
+    Aprime = Merge(B,C)
+    return Aprime
+
+def Merge(B,C):
+    D = []
+    while B and C :
+        if B[0]<C[0]:
+            D.append(B.pop(0))
+        else:
+            D.append(C.pop(0))
+    if C:
+        D.extend(C)
+    else:
+        D.extend(B)
+    return D
+
+
+
 if __name__ == "__main__":
     a=[4,32,2,4,2,1,4,7]
     print(selectionSorting2(a))
     print(selectionSorting(a))
+    print(MergeSorting(a))
         
 
