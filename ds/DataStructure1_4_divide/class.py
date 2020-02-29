@@ -84,7 +84,9 @@ def selectionSorting2(a):
         a[i],a[indexMin] = a[indexMin],a[i]
     return a
 
+##Merge Sorting
 
+#Divide the problem
 def MergeSorting(a):
     n = len(a)
     if n == 1:
@@ -95,6 +97,7 @@ def MergeSorting(a):
     Aprime = Merge(B,C)
     return Aprime
 
+#merge the 2 arrays
 def Merge(B,C):
     D = []
     while B and C :
