@@ -111,12 +111,29 @@ def Merge(B,C):
         D.extend(B)
     return D
 
+def countSort(A):
+    k = max(A)
+    b = [0 for i in range(len(A))]
+    c = [0 for i in range(k+1)]
+    #将A中的元素放入c中
+    for j in A:
+        c[j] += 1
+    #c中，index代表A元素的大小，每个值代表在A中出现的次数
+    for i in range(1,len(c)):
+        c[i] = c[i] + c[i-1]
+    for j in A:
+        b[c[j]-1] = j
+        c[j] -= 1
+    return b
 
+
+##QuickSorting
 
 if __name__ == "__main__":
     a=[4,32,2,4,2,1,4,7]
     print(selectionSorting2(a))
     print(selectionSorting(a))
     print(MergeSorting(a))
+    print(countSort(a))
         
 
