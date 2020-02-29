@@ -64,10 +64,29 @@ def MultPolyDC(A,B,n,a1,b1):
 
 ##Master theorem
 #T(n)=aT([n/b])+O(n^d)
-#O(n^d) O(n^d log(n))
+#T(n)=1.O(n^d) if d>logba; 2.T(n)=O(n^d log(n)) if d == logba 3.T(n) =O(n^(logba)) if d < logba
 
+##Sorting problem
+#selection sorting 
+def selectionSorting(a):
+    for i in range(len(a)):
+        minIndex = i
+        for j in range(i+1,len(a)):
+            if a[j] < a[minIndex]:
+                minIndex = j
+        a[i],a[minIndex] = a[minIndex],a[i]
+    return a
+        
+def selectionSorting2(a):
+    for i in range(len(a)):
+        k = min(a[i:len(a)])
+        indexMin = i+a[i:].index(k)
+        a[i],a[indexMin] = a[indexMin],a[i]
+    return a
 
 if __name__ == "__main__":
-    print(MultPoly([1,2],[3,4],2))
+    a=[4,32,2,4,2,1,4,7]
+    print(selectionSorting2(a))
+    print(selectionSorting(a))
         
 
