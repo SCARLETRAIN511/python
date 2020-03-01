@@ -46,17 +46,17 @@ def MultPoly(A,B,n):
     return product
 
 #divide and conquer algorithm
-def MultPolyDC(A,B,n,a1,b1):
+def MultPolyDC(A, B, n, a1, b1):
     R=[i for i in range(2*n-1)]
-    if n==1:
-        R[0]=A[a1]*B[b1]
+    if n == 1:
+        R[0] = A[a1]*B[b1]
         return R
     for i in range(n-1):
         MultPolyDC(A,B,n/2,a1,b1)
     for i in range(n,2*n-1):
         MultPolyDC(A,B,n/2,a1+n/2,b1+n/2)
-    DoE1=MultPolyDC(A,B,n/2,a1,b1+n/2)
-    D1Eo=MultPolyDC(A,B,n/2,a1+n/2,b1)
+    DoE1 = MultPolyDC(A,B,n/2,a1,b1+n/2)
+    D1Eo = MultPolyDC(A,B,n/2,a1+n/2,b1)
     for i in range(n/2,n+n/2-1):
         R[i] += D1Eo+DoE1
     return R
@@ -128,6 +128,29 @@ def countSort(A):
 
 
 ##QuickSorting
+def quickSort(A,l,r):
+    if l<r:
+        m = partition(A,l,r)
+        quickSort(A,l,m-1)
+        quickSort(A,m+1,r)
+
+#partition algorithms
+def partition(A,l,r):
+    x = A[l]
+    j = l
+    for i in range(l+1, r+1):
+        if A[i]<=x:
+            j+=1
+            A[j], A[i] = A[i], A[j]
+            #通过 交换，让j左边的数都比x小，j
+    A[l], A[j] = A[j], A[l]
+    return j
+
+#implement the the quicksort
+def quickSortFunc(A):
+    quickSort(A,0,len(A)-1)
+    return A
+
 
 if __name__ == "__main__":
     a=[4,32,2,4,2,1,4,7]
@@ -135,5 +158,6 @@ if __name__ == "__main__":
     print(selectionSorting(a))
     print(MergeSorting(a))
     print(countSort(a))
+    print(quickSortFunc(a))
         
 
