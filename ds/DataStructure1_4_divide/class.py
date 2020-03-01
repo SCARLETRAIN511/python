@@ -111,6 +111,8 @@ def Merge(B,C):
         D.extend(B)
     return D
 
+
+#non-comparison based sorting algorithms
 def countSort(A):
     k = max(A)
     b = [0 for i in range(len(A))]
@@ -126,7 +128,7 @@ def countSort(A):
         c[j] -= 1
     return b
 
-
+'''start of the quick sorting algorithm'''
 ##QuickSorting
 def quickSort(A,l,r):
     if l<r:
@@ -150,6 +152,7 @@ def partition(A,l,r):
 def quickSortFunc(A):
     quickSort(A,0,len(A)-1)
     return A
+'''end of the quick sorting algorithm'''
 
 
 if __name__ == "__main__":
