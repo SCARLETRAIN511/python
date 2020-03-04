@@ -143,8 +143,9 @@ def partition(A,l,r):
     for i in range(l+1, r+1):
         if A[i]<=x:
             j+=1
+            #通过交换 比x小的数都往前移
             A[j], A[i] = A[i], A[j]
-            #通过 交换，让j左边的数都比x小，j
+    #再次交换 把x放到最后移到的地方j.
     A[l], A[j] = A[j], A[l]
     return j
 
