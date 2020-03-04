@@ -13,18 +13,29 @@ def RecursiveNumCoins(money,coins):
                 MinNumCoins = NumCoins + 1
     return MinNumCoins
 
-## dynamic programming method 
 
+## dynamic programming method
+#compute from small 
 def DPchange(money,coins):
+    #initiate the table
     MinNumCoins = [0 for i in range(0,money+1)]
     for m in range(1,money+1):
         MinNumCoins[m] = 100000
         for coin in coins:
             if m >= coin:
+                #coin == money, one coin is needed
                 NumCoins = MinNumCoins[m-coin] + 1
                 if NumCoins < MinNumCoins[m]:
                     MinNumCoins[m] = NumCoins
-    return MinNumCoins[money]
+    if MinNumCoins[money] == 100000:
+        print('This can not be achieved')
+        return False
+    else:              
+        return MinNumCoins[money]
+
+
+
+
 
 if __name__ == "__main__":
     print(RecursiveNumCoins(2,[6,5,1]))
