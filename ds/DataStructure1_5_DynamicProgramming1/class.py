@@ -33,10 +33,25 @@ def DPchange(money,coins):
     else:              
         return MinNumCoins[money]
 
-def EditDistance(A,B):-->A is alist 
-    pass
-    
 
+##A and B list with n and m element
+def EditDistance(A,B):
+    n=len(A)-1
+    m=len(B)-1
+    small=[i for i in range(len(A))]
+    D = [small for i in range(len(B))]
+    for j in range(1,len(A)):
+        for i in range(1,len(B)):
+            insertion = D[i][j-1]+1
+            deletion = D[i-1][j]+1
+            match = D[i-1][j-1]
+            mismatch = D[i-1][j-1]+1
+            if A[i] == B[j]:
+                D[i][j] = min(insertion,deletion,match)
+            else:
+                D[i][j] = min(insertion,deletion,mismatch)
+    return D[n][m]
+##needs revision
 
 
 
