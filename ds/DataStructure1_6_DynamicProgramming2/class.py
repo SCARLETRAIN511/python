@@ -1,6 +1,7 @@
 #python3
 ##Dynamic programming Class problems
 
+import numpy as np
 #kanpsack problem using dynamic programming
 '''
 knapsack with repetitions and discrete
@@ -24,9 +25,22 @@ def knapsack(totalWeight,weights,values):
 '''
 knapsack without repetitions
 '''
-
+def KnapSackWithOutRep(Weight, weights, values):
+    n = len(values)
+    value = np.zeros((Weight+1,n+1),dtype=np.int)
+    
+    for i in range(1,n+1):
+    #gradually increase the number of items that can be taken
+        for w in range(1,Weight+1):
+            value[w][i] = value[w][i-1]
+            if weights[i-1] <= w:
+                val = value[w-weights[i-1]][i-2]+values[i-1]
+                if value[w][i]<val:
+                    value[w][i] = val
+    return value[Weight][n-1]
 
 
 
 if __name__ == "__main__":
     print(knapsack(10,[6,3,4,2],[30,15,16,9]))
+    print(KnapSackWithOutRep(10,[6,3,4,2],[30,15,16,9]))
