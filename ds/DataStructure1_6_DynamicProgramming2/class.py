@@ -37,7 +37,7 @@ def KnapSackWithOutRep(Weight, weights, values):
                 val = value[w-weights[i-1]][i-2]+values[i-1]
                 if value[w][i]<val:
                     value[w][i] = val
-    return value[Weight][n-1]
+    return value[Weight][n]
 
 
 
