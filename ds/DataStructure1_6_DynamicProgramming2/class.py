@@ -40,6 +40,27 @@ def KnapSackWithOutRep(Weight, weights, values):
     return value[Weight][n]
 
 
+#Placing parentheses in the equation to maximize the the value
+'''
+d is the list of digits, op is the list of operations
+start from zero
+'''
+
+def Parentheses(d,op):
+    n = len(d)
+    m = np.zeros((d,d),dtype = np.int)
+    bigM = np.zeros((d,d),dtype = np.int)
+    for i in range(len(n)):
+        m[i][i] = d[i]
+        bigM[i][i] = d[i]
+    for s in range(1,n-1):
+        j = 1 + s
+        m[i][j] = min(i,j)
+        bigM[i][j] = max(i,j)
+    return bigM[1][n-1]
+
+
+
 
 if __name__ == "__main__":
     print(knapsack(10,[6,3,4,2],[30,15,16,9]))
