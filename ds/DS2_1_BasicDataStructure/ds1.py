@@ -33,6 +33,9 @@ class Stack():
         return len(self.items)
 
 
+
+
+
 class Node:
     def __init__(self,initdata):
         self.data=initdata
@@ -93,10 +96,11 @@ class Linked_list(object):
     def isEmpty(self):
         return self.head == None
 
+
+
 #有序表
 #表头是最小的数
 #与链表实现一样
-
 class OrderedList:
     def __init__(self):
         self.head = None
@@ -160,6 +164,9 @@ class OrderedList:
         else:
             temp.setNext(current)
             previous.setNext(temp)
+
+
+
 
 #can either add or delete at the start or the end
 class Deque:
