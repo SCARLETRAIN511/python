@@ -16,8 +16,8 @@ class Queue():
         return len(self.items)
 
 
-#for stack, top and base, delete and add happen at one end/ LIFO structure, last in first out
-#we can either use left or right as the top of the stack
+##for stack, top and base, delete and add happen at one end/ LIFO structure, last in first out
+##we can either use left or right as the top of the stack
 class Stack():
     def __init__(self):
         self.items=[]
@@ -31,9 +31,6 @@ class Stack():
         return self.items[len(self.items)-1]
     def size(self):
         return len(self.items)
-
-
-
 
 
 class Node:
@@ -96,11 +93,10 @@ class Linked_list(object):
     def isEmpty(self):
         return self.head == None
 
-
-
 #有序表
 #表头是最小的数
 #与链表实现一样
+
 class OrderedList:
     def __init__(self):
         self.head = None
@@ -164,9 +160,6 @@ class OrderedList:
         else:
             temp.setNext(current)
             previous.setNext(temp)
-
-
-
 
 #can either add or delete at the start or the end
 class Deque:
