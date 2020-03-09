@@ -18,33 +18,42 @@ class Queue():
 
 ##for stack, top and base, delete and add happen at one end/ LIFO structure, last in first out
 ##we can either use left or right as the top of the stack
-class Stack():
+class Stack:
     def __init__(self):
-        self.items=[]
+        self.items = []
+
     def isEmpty(self):
-        return self.items==[]
-    def push(self,item):
+        return self.items == []
+
+    def push(self, item):
         self.items.append(item)
+
     def pop(self):
         return self.items.pop()
-    def peek(self):#return the last item in the stack
+
+    def peek(self):
         return self.items[len(self.items)-1]
+
     def size(self):
         return len(self.items)
 
-
+        
 class Node:
     def __init__(self,initdata):
-        self.data=initdata
-        self.next=None
+        self.data = initdata
+        self.next = None
+
     def getData(self):
         return self.data
+
     def getNext(self):
         return self.next
+
     def setData(self,newdata):
-        self.data=newdata
+        self.data = newdata
+
     def setNext(self,newnext):
-        self.next=newnext
+        self.next = newnext
 
 #无序表
 class Linked_list(object):
