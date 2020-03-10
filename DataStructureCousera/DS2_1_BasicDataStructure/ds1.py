@@ -32,6 +32,7 @@ class Stack:
         return self.items.pop()
 
     def peek(self):
+        #return the most recently visited key
         return self.items[len(self.items)-1]
 
     def size(self):
@@ -102,10 +103,11 @@ class Linked_list(object):
     def isEmpty(self):
         return self.head == None
 
+
+
 #有序表
 #表头是最小的数
 #与链表实现一样
-
 class OrderedList:
     def __init__(self):
         self.head = None
