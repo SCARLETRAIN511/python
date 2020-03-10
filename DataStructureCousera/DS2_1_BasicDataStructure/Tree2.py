@@ -1,6 +1,6 @@
 #this script will use tree to solve various problems
 
-from tree1 import BinaryTree
+from Tree1 import BinaryTree
 from ds1 import Stack
 #import the tree structure
 

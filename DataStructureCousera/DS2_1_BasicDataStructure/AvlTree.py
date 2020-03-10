@@ -1,4 +1,4 @@
-from Tree_application import BinarySearchTree, TreeNode
+from Tree2 import BinarySearchTree, TreeNode
 
 #实现avl Tree
 

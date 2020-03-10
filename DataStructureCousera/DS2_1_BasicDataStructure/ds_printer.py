@@ -1,4 +1,4 @@
-from PythonDSExamplePrograms.pythonds.basic.queue import Queue
+from ds1 import Queue
 import random
 
 
