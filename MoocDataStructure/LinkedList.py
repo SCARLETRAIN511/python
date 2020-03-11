@@ -44,3 +44,49 @@ class LinkedList(object):
     def __iter__(self):
         for node in self.iter_node():
             yield node.value
+
+    def remove(self, value):
+        prenode = self.root
+        currnode = self.root.next
+        while currnode.next is not None:
+            if currnode.value == value:
+                prenode.next = currnode.next()
+                del currnode
+                self.length -= 1
+                return
+    def find(self, value):
+        index = 0
+        for node in self.iter_node():
+            if node.value == value:
+                return index
+            index += 1
+        return -1
+    
+    def popLeft(self):
+        if self.root.next is None:
+            raise Exception("Pop from empty linkedlist")
+        headnode = self.root.next
+        self.root.next = headnode.next
+        self.length -= 1
+        value = headnode.value
+        del headnode
+        return value
+    
+    def clear(self):
+        for node in self.iter_node():
+            del node
+        self.root = None
+        self.length = 0
+    
+def testLinkedList():
+    ll = LinkedList()
+    ll.append(9)
+    ll.append(1)
+    print(ll.length)
+    ll.popLeft()
+    print(ll.length)
+    ll.append(1)
+    ll.appedleft(1)
+    print(ll.length)
+
+testLinkedList()
