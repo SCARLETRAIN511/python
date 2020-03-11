@@ -75,9 +75,12 @@ class LinkedList(object):
     def clear(self):
         for node in self.iter_node():
             del node
-        self.root = None
+        self.root.next = None
         self.length = 0
     
+##append 与 appendleft 都是o[1]
+##find 与remove 都是 o[n]
+
 def testLinkedList():
     ll = LinkedList()
     ll.append(9)
@@ -88,5 +91,6 @@ def testLinkedList():
     ll.append(1)
     ll.appedleft(1)
     print(ll.length)
+
 
 testLinkedList()
