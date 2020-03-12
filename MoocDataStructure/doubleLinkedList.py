@@ -89,22 +89,23 @@ class DoubleLinkedList():
             currnode = currnode.next
         yield currnode
 
+if __name__ == "__main__":
+    
+    def testDoubleLinkedList():
+        dll = DoubleLinkedList()
+        print(dll.length)
+        dll.append(1)
+        dll.append(2)
+        dll.appendleft(19)
+        headnode = dll.headNode()
+        dll.remove(headnode)
+        last = dll.tailNode()
+        print([node.value for node in dll.iter_node()])
 
-def testDoubleLinkedList():
-    dll = DoubleLinkedList()
-    print(dll.length)
-    dll.append(1)
-    dll.append(2)
-    dll.appendleft(19)
-    headnode = dll.headNode()
-    dll.remove(headnode)
-    last = dll.tailNode()
-    print([node.value for node in dll.iter_node()])
+        print(dll.remove(last))
+        print([node.value for node in dll.iter_node()])
 
-    print(dll.remove(last))
-    print([node.value for node in dll.iter_node()])
-
-testDoubleLinkedList()
+    testDoubleLinkedList()
 
 
             

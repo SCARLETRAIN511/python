@@ -3,7 +3,7 @@
 class Array(object):
     def __init__(self,size = 32):
         self._size = size
-        self._items = [None] * 32
+        self._items = [None] * size
     
     def __getItem__(self,index):
         return self._items[index]
@@ -25,5 +25,6 @@ class Array(object):
 
 if __name__ == "__main__":
     testArray = Array(10)
+    testArray._items[1]=29
     testArray.__setItem__(5,10)
     print(testArray._items)

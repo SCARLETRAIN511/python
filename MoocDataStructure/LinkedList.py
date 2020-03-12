@@ -80,17 +80,18 @@ class LinkedList(object):
     
 ##append 与 appendleft 都是o[1]
 ##find 与remove 都是 o[n]
+if __name__ == "__main__":
+    
+    def testLinkedList():
+        ll = LinkedList()
+        ll.append(9)
+        ll.append(1)
+        print(ll.length)
+        ll.popLeft()
+        print(ll.length)
+        ll.append(1)
+        ll.appedleft(1)
+        print(ll.length)
 
-def testLinkedList():
-    ll = LinkedList()
-    ll.append(9)
-    ll.append(1)
-    print(ll.length)
-    ll.popLeft()
-    print(ll.length)
-    ll.append(1)
-    ll.appedleft(1)
-    print(ll.length)
 
-
-testLinkedList()
+    testLinkedList()
