@@ -51,5 +51,5 @@ if __name__ == "__main__":
     s1.push(3)
     print(len(s1))
     s2 = Stack()
-    print(s1.pop())
+    print(s1.pop())#should print(3)
     print(s1.isEmpty())
