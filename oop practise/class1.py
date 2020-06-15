@@ -12,11 +12,31 @@ class Employee():
         self.department = department
         self.Employeelist.append(self.id)
 
+    def tax(self):
+        return (self.salary*0.2)
+    
+    def salaryPerDay(self):
+        return (self.salary/30)
 
-Steve = Employee(1,19,19000,'electrics')
+    #create the class method
+    @classmethod
+    def returnEmployeeList(cls):
+        return cls.Employeelist
 
-Mark = Employee(2,20,190000,'mechanical')
+    #create a static method
+    @staticmethod
+    def returnCompanyName():
+        return "Beckman Coulter"
 
 
-print(Mark.Employeelist)
-print(Employee.Employeelist)
+def useOfClass1():
+    Steve = Employee(1,19,19000,'electrics')
+    Mark = Employee(2,20,190000,'mechanical')
+
+    print(Mark.salaryPerDay())
+    print(Employee.returnEmployeeList())
+
+    print(Employee.returnCompanyName())
+
+useOfClass1()
+
