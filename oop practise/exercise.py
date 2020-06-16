@@ -9,6 +9,7 @@ class Point:
 
 p1 = Point(1,2,4)
 
+
 class Student:
     def __init__(self,phy,chem,bio):
         self.phy = phy
