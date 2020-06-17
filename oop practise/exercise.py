@@ -39,3 +39,18 @@ class Calculator():
 
     def divide(self):
         return self.num2/self.num1
+
+
+class User:
+    def __init__(self,userName = None, password = None):
+        self.__userName = userName
+        self.__password = password
+    
+    def login(self,userName,password):
+        if (self.__userName.lower() == userName.lower()) and self.__password == password:
+            print("Access granted congradulations user %s, please refresh" %userName)
+        else:
+            print("invalid name or password")
+
+Helen = User('jt2418',652117)
+Helen.login('jt2418',652117)
