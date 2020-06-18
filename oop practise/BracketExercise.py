@@ -33,5 +33,15 @@ def main(str1):
     else:
         return False
 
+def reverseString(str):
+    s = Stack()
+    for i in range(len(str)):
+        s.push(str[i])
+    revStr = ""
+    while not s.is_empty():
+        revStr += s.pop()
+    return revStr
+
 if __name__ == "__main__":
     print(main("()([{{{}}}])(])"))
+    print(reverseString("hello"))
