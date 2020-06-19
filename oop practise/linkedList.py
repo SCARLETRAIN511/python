@@ -144,8 +144,23 @@ class LinkedList:
         
         currNode1.next,currNode2.next = currNode2.next, currNode1.next
 
+    #Reverse the linkedlist
+    def reverse(self):
+        prevNode = None
+        currNode = self.head
+        while currNode:
+            nextNode = currNode.next
+            #reverse the link
+            currNode.next = prevNode
 
-if __name__ == "__main__":
+            #from the head to the end of the linkedlist, reverse the directions of links
+            prevNode = currNode
+            currNode = nextNode
+            
+        self.head = prevNode
+
+
+def main():
     llist = LinkedList()
     llist.append("A")
     llist.append("B")
@@ -153,9 +168,13 @@ if __name__ == "__main__":
     llist.append("D")
     llist.prepend("0")
     llist.prepend("K")
-    llist.deleteNodeByPos(-100)
     llist.printList()
     #print(llist.getLength())
     #print(llist.getLengthRecursive(llist.head))
-    llist.nodeExchange("5","D")
+    llist.reverse()
     llist.printList()
+
+
+if __name__ == "__main__":
+    main()
+    
