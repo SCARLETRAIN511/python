@@ -109,6 +109,41 @@ class LinkedList:
         else:
             return 1+self.getLengthRecursive(node.next)
 
+    def nodeExchange(self,key1,key2):
+        #to check whether they are the same node
+        if key1 == key2:
+            return
+
+        #use the iteration to locate the nodes that keys indicate
+        prev1 = None
+        currNode1 = self.head
+        while currNode1 and currNode1.data != key1:
+            prev1 = currNode1
+            currNode1 = currNode1.next
+
+        prev2 = None
+        currNode2 = self.head
+        while currNode2 and currNode2.data != key2:
+            prev2 = currNode2
+            currNode2 = currNode2.next
+        
+        #check whether both nodes exist or not
+        if not currNode1 or not currNode2:
+            return
+        
+        if prev1:
+            prev1.next = currNode2
+        #if the key corresponds to the head node
+        else:
+            self.head = currNode2
+
+        if prev2:
+            prev2.next = currNode1
+        else:
+            self.head = currNode1
+        
+        currNode1.next,currNode2.next = currNode2.next, currNode1.next
+
 
 if __name__ == "__main__":
     llist = LinkedList()
@@ -120,5 +155,7 @@ if __name__ == "__main__":
     llist.prepend("K")
     llist.deleteNodeByPos(-100)
     llist.printList()
-    print(llist.getLength())
-    print(llist.getLengthRecursive(llist.head))
+    #print(llist.getLength())
+    #print(llist.getLengthRecursive(llist.head))
+    llist.nodeExchange("5","D")
+    llist.printList()
