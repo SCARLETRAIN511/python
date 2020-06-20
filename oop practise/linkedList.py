@@ -192,7 +192,23 @@ class LinkedList:
             s.next = q
         if not q:
             s.next = p
-        return newHead5
+        return newHead
+
+    def removeDuplicate(self):
+        curr = self.head
+        prev = None
+        dup_values = dict()
+
+        while curr:
+            if curr.data in dup_values:
+                prev.next = curr.next
+                curr = None
+            else:
+                dup_values[curr.data] = 1
+                prev = curr
+            
+            curr = prev.next
+
 
 
 
@@ -203,7 +219,7 @@ def main():
     llist.append("C")
     llist.append("D")
     llist.prepend("0")
-    llist.prepend("K")
+    llist.prepend("K") 
     llist.printList()
     #print(llist.getLength())
     #print(llist.getLengthRecursive(llist.head))
