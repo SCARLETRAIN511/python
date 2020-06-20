@@ -159,6 +159,42 @@ class LinkedList:
             
         self.head = prevNode
 
+    #this method is to merge 2 sorted linkedlist together to form still a sorted linkedlist
+    def mergeSorted(self,llist):
+        p = self.head
+        q = llist.head
+        s = None
+        
+        if not p:
+            return q
+        if not q:
+            return p
+        
+        if p and q:
+            if p.data < q.data:
+                s = p
+                p = s.next
+            else:
+                s = q
+                q = s.next
+            newHead = s
+        
+        while p and q:
+            if p.data <= q.data:
+                s.next = p
+                s = p
+                p = s.next
+            else:
+                s.next = q
+                s = q;
+                q = s.next
+        if not p:
+            s.next = q
+        if not q:
+            s.next = p
+        return newHead5
+
+
 
 def main():
     llist = LinkedList()
