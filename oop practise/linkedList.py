@@ -209,9 +209,41 @@ class LinkedList:
             
             curr = prev.next
 
+    def printNthfromLast(self,n):
+        totalLength = self.getLength()
+
+        curr = self.head
+        while curr:
+            if totalLength == n:
+                print(curr.data)
+                return curr.data
+            totalLength -= 1
+            curr = curr.next
+        if curr is None:
+            return
+    
+    #use the iteration to calculate the number of occurences
+    def countOccurence(self,data):
+        count = 0
+        currentNode = self.head
+        while currentNode:
+            if currentNode.data == data:
+                count += 1
+            currentNode = currentNode.next
+        return count
+
+    #self.head should be the inital value for the node parameter here
+    def countOccurenceRecur(self,node,data):
+        if not node:
+            return 0   
+        if node.data == data:
+            return 1 + self.countOccurenceRecur(node.next,data)
+        else:
+            return self.countOccurenceRecur(node.next,data)
 
 
 
+    
 def main():
     llist = LinkedList()
     llist.append("A")
@@ -224,7 +256,9 @@ def main():
     #print(llist.getLength())
     #print(llist.getLengthRecursive(llist.head))
     llist.reverse()
-    llist.printList()
+    llist.printList()    
+    print(llist.printNthfromLast(1))
+    print(llist.countOccurenceRecur(llist.head,"A"))
 
 
 if __name__ == "__main__":
