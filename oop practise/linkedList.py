@@ -260,7 +260,29 @@ class LinkedList:
             q.next = self.head
             self.head = p.next
             p.next = None
-            
+    
+    def isPalindrome(self):
+        p = self.head
+        s = []
+        while p:
+            s.append(p.data)
+            p = p.next
+        p = self.head
+        while p:
+            data = s.pop()
+            if p.data != data:
+                return False
+            p = p.next
+        return True
+
+    def isPalindrome2(self):
+        s = ""
+        p = self.head
+        while p:
+            s += p.data
+            p = p.next
+        return s == s[::-1]
+    
     
 def main():
     llist = LinkedList()
