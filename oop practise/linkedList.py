@@ -282,6 +282,42 @@ class LinkedList:
             s += p.data
             p = p.next
         return s == s[::-1]
+
+    #use 2 pointers
+    def isPalindrome2Pointers(self):
+        if self.head:
+            p = self.head
+            q = self.head
+            prev = []
+
+            i = 0
+            while q:
+                prev.append(q)
+                q = q.next
+                i += 1
+            q = prev[i-1]
+            count = 1
+
+            while count<= i//2 + 1:
+                if prev[-count].data != p.data:
+                    return False
+                p = p.next
+                count += 1
+            return True
+        else:
+            return True
+        
+    def movTailToHead(self):
+        curr = self.head
+        prev = None
+        while curr.next:
+            prev = curr
+            curr = curr.next
+        curr.next = self.head
+        self.head = curr
+        prev.next = None
+
+
     
     
 def main():
@@ -295,10 +331,10 @@ def main():
     llist.printList()
     #print(llist.getLength())
     #print(llist.getLengthRecursive(llist.head))
-    llist.reverse()
     llist.printList()    
-    print(llist.printNthfromLast(1))
-    print(llist.countOccurenceRecur(llist.head,"A"))
+    llist.movTailToHead()
+    llist.printList()
+
 
 
 if __name__ == "__main__":
