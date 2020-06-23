@@ -313,13 +313,38 @@ class LinkedList:
         while curr.next:
             prev = curr
             curr = curr.next
+            
         curr.next = self.head
         self.head = curr
         prev.next = None
 
+    def sum2LinkedList(self,llist):
+        curr1 = self.head
+        curr2 = llist.head
+        count1 = 0
+        count2 = 0
+        num1 = 0
+        num2 = 0
 
-    
-    
+        while curr1:
+            num1 += curr1.data*10**(count1)
+            curr1 = curr1.next
+            count1 += 1
+
+        while curr2:
+            num2 += curr2.data*10**(count2)
+            curr2 = curr2.next
+            count2 += 1
+        
+        #calculate the number after the operation
+        numSum = list(str(num1 + num2))
+        l3 = LinkedList()
+        for i in numSum:
+            l3.append(i)
+        l3.reverse()
+
+        
+        
 def main():
     llist = LinkedList()
     llist.append("A")
@@ -335,8 +360,20 @@ def main():
     llist.movTailToHead()
     llist.printList()
 
+def op1():
+    l1 = LinkedList()
+    l1.append(1)
+    l1.append(2)
+    l1.append(3)
+
+    l2 = LinkedList()
+    l2.append(4)
+    l2.append(5)
+    l2.append(6)
+
+    print(l1.sum2LinkedList(l2))
 
 
 if __name__ == "__main__":
-    main()
+    op1()
     
