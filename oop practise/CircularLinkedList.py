@@ -30,6 +30,20 @@ class CircularLinkedList:
                 break
         print(listValue)
 
+    def prepend(self,data):
+        newNode = Node(data)
+        curr = self.head
+        newNode.next = self.head
+        
+        if not self.head:
+            newNode.next = newNode
+        else:
+            while curr.next != self.head:
+                curr = curr.next
+            curr.next = newNode
+        self.head = newNode
+        
+
 
 def op1():
     llist = CircularLinkedList()
