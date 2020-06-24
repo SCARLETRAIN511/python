@@ -111,7 +111,46 @@ class CircularLinkedList:
         self.printList()
         splitList.printList()
 
+    def removeNode(self,node):
+        if self.head == node:
+            curr = self.head
+            while curr.next != self.head:
+                curr = curr.next
+            if self.head == self.head.next:
+                self.head = None
+            else:
+                curr.next = self.head.next
+                self.head = self.head.next
+        else:
+            curr = self.head
+            prev = None
+            while curr.next != self.head:
+                prev = curr
+                curr = curr.next
+                if curr == node:
+                    prev.next = curr.next
+                    curr = curr.next
 
+    def josephusCircle(self,step):
+        curr =self.head
+        while len(self)>1:
+            count = 1
+            while count != step:
+                curr = curr.next
+                count += 1
+            print("kill" + str(curr.data))
+            self.removeNode(curr)
+            curr = curr.next
+
+    #this is a class method
+    @classmethod
+    def isCircularLinkedList(cls,inputList):
+        curr = inputList.head
+        while curr.next:
+            if curr.next == inputList.head:
+                return True
+        return False
+ 
 
 def op1():
     llist = CircularLinkedList()
@@ -123,6 +162,7 @@ def op1():
     llist.printList()
     print(llist.getLength())
     llist.splitHalf()
+    print(CircularLinkedList.isCircularLinkedList(llist))
 
 if __name__ == "__main__":
     op1()
