@@ -71,15 +71,58 @@ class CircularLinkedList:
         else:
             return
 
+    def getLength(self):
+        curr = self.head
+        count = 0
+        while curr:
+            count += 1
+            curr = curr.next
+            if curr == self.head:
+                break
+        
+        return count
 
-            
+    def splitHalf(self):
+        size = self.getLength()
+        if size == 0:
+            return None
+        if size == 1:
+            return self.head
+        
+        #floor divide
+        mid = size//2
+        count = 0
+        prev = None
+        curr = self.head
+        while count < mid and curr:
+            prev = curr
+            curr = curr.next
+            count += 1
+        #create the first half
+        prev.next = self.head
+
+        splitList = CircularLinkedList()
+        while curr.next != self.head:
+            splitList.append(curr.data)
+            curr = curr.next
+        #append the last node after exit the while loop
+        splitList.append(curr.data)
+
+        self.printList()
+        splitList.printList()
+
+
 
 def op1():
     llist = CircularLinkedList()
     llist.append(1)
     llist.append(2)
     llist.remove(1)
+    llist.append(120)
+    llist.append("Helo")
     llist.printList()
+    print(llist.getLength())
+    llist.splitHalf()
 
 if __name__ == "__main__":
     op1()
