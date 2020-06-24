@@ -162,6 +162,7 @@ def op1():
     llist.printList()
     print(llist.getLength())
     llist.splitHalf()
+    #implement the class method to check the llist's property
     print(CircularLinkedList.isCircularLinkedList(llist))
 
 if __name__ == "__main__":
