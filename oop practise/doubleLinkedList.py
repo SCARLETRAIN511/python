@@ -46,6 +46,78 @@ class DoubleLinkedList:
             self.head = newNode
             newNode.prev = None
 
+    def addNodeAfter(self,key,data):
+        curr = self.head
+        if curr.next is None and curr.data == key:
+            self.append(data)
+            return
+        elif curr.data == key:
+            newNode = Node(data)
+            nxt = curr.next
+            curr.next = newNode
+            newNode.next = nxt
+            newNode.prev = curr
+            nxt.prev = newNode
+            return
+        curr = curr.next
+    
+    def addNodeBefore(self,key,data):
+        curr = self.head
+        while curr:
+            if curr.prev is None and curr.data == key:
+                self.prepend(data)
+                return
+            elif curr.data == key:
+                newNode = Node(data)
+                prev = curr.prev
+                prev.next = newNode
+                newNode.next = curr
+                newNode.prev = prev
+                curr.prev = newNode
+                return
+            curr = curr.next
+
+    def deleteNode(self,key):
+        curr = self.head
+        while curr:
+            if curr.data == key and curr == self.head:
+                #only one node in the linkedlist
+                if not curr.next:
+                    curr = None
+                    self.head = None
+                    return
+
+                #if the key is the head node in the linkedlist
+                else:
+                    nxt = curr.next
+                    curr.next = None
+                    nxt.prev = None
+                    curr = None
+                    self.head = nxt
+                    return
+                
+            #not the head node
+            elif curr.data == key:
+                if curr.next:
+                    nxt = curr.next
+                    prev = curr.prev
+                    prev.next = nxt
+                    nxt.prev = prev
+                    curr.next = None
+                    curr.prev = None
+                    curr = None
+
+                #end node of the linkedlist
+                else:
+                    prev = curr.prev
+                    prev.next = None
+                    curr.prev = None
+                    curr = None
+                    return
+
+            curr = curr.next
+
+
 
 def op1():
     llist = DoubleLinkedList()
