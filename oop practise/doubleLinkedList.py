@@ -106,6 +106,7 @@ class DoubleLinkedList:
                     curr.next = None
                     curr.prev = None
                     curr = None
+                    return
 
                 #end node of the linkedlist
                 else:
@@ -116,7 +117,71 @@ class DoubleLinkedList:
                     return
 
             curr = curr.next
+    
+    def reverse(self):
+        temp = None
+        curr = self.head
+        while curr:
+            temp = curr.prev
+            curr.prev = curr.next
+            curr.next = temp
+            curr = curr.prev
+        if temp:
+            self.head = temp.prev
 
+    def removeDuplicates(self):
+        curr = self.head
+        seen = dict()
+        while curr:
+            if curr.data not in seen:
+                seen[curr.data] = 1
+                curr = curr.next
+            else:
+                nxt = curr.next
+                #also can use the method above using the node.data
+                #self.deleteNode(curr.data)
+                self.delete_node(curr)
+                curr = nxt
+
+    def delete_node(self, node):
+        cur = self.head
+        while cur:
+            if cur == node and cur == self.head:
+            # Case 1:
+                if not cur.next:
+                    cur = None 
+                    self.head = None
+                    return
+
+            # Case 2:
+                else:
+                    nxt = cur.next
+                    cur.next = None 
+                    nxt.prev = None
+                    cur = None
+                    self.head = nxt
+                    return 
+
+            elif cur == node:
+                # Case 3:
+                if cur.next:
+                    nxt = cur.next 
+                    prev = cur.prev
+                    prev.next = nxt
+                    nxt.prev = prev
+                    cur.next = None 
+                    cur.prev = None
+                    cur = None
+                    return
+
+        # Case 4:
+                else:
+                    prev = cur.prev 
+                    prev.next = None 
+                    cur.prev = None 
+                    cur = None 
+                    return 
+            cur = cur.next
 
 
 def op1():
@@ -125,6 +190,10 @@ def op1():
     llist.append(2)
     llist.append(4)
     llist.prepend(5)
+    llist.reverse()
+    llist.append(5)
+    llist.printList()
+    llist.removeDuplicates()
     llist.printList()
 
 
