@@ -183,6 +183,20 @@ class DoubleLinkedList:
                     return 
             cur = cur.next
 
+    def pairSum(self,sumValue):
+        pairs = []
+        p = self.head
+        q = None
+        while p:
+            q = p.next
+            while q:
+                if (p.data + q.data == sumValue):
+                    pairs.append("(" + str(p.data) +" " + str(q.data) + ")")
+                q = q.next
+            p = p.next
+        return pairs
+
+
 
 def op1():
     llist = DoubleLinkedList()
@@ -195,7 +209,7 @@ def op1():
     llist.printList()
     llist.removeDuplicates()
     llist.printList()
-
+    print(llist.pairSum(6))
 
 if __name__ == "__main__":
     op1()
