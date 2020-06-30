@@ -62,10 +62,18 @@ class TwoSum:
         return False
 
 
-
-
+class OptimnalSolution:
+    def solution1(self,data):
+        #data is an array with length of 6
+        data = sorted(data)
+        lengthTime = []
+        for i in range(len(data)//2):
+            print(data[i],data[~i])
+            lengthTime.append(data[i]+data[~i])
+        return max(lengthTime)
 
 if __name__ == "__main__":
     s2 = TwoSum()
     s2.solution3([1,2,3,45,63,4],5)
-
+    s3 = OptimnalSolution()
+    s3.solution1([1,2,34,52,32,4])
