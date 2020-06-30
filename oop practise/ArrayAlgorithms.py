@@ -72,6 +72,38 @@ class OptimnalSolution:
             lengthTime.append(data[i]+data[~i])
         return max(lengthTime)
 
+
+class IntersectionOfTwoSortedList:
+    def solution1(self,array1,array2):
+        i = 0
+        j = 0
+        intersection = []
+        #two arrays should be sorted
+        while i < len(array1) and j < len(array2):
+            if array1[i] == array2[j]:
+                if i == 0 or array1[i] != array1[i-1]:
+                    intersection.append(array1[i])
+                i += 1
+                j += 1
+            elif array1[i] < array2[j]:
+                i += 1
+            else:
+                 j+= 1
+        return intersection
+
+
+class BuyAndSellStockOnce:
+    def solution(self,prices):
+        maxProfit  = 0.0
+        minPrice = float("inf")
+        for price in prices:
+            minPrice = min(minPrice,price)
+            compareProfit = price - minPrice
+            maxProfit = max(maxProfit,compareProfit)
+        return maxProfit
+
+
+
 if __name__ == "__main__":
     s2 = TwoSum()
     s2.solution3([1,2,3,45,63,4],5)
