@@ -11,9 +11,22 @@ class BinaryTree(object):
         self.root = Node(root)
 
 
+#we have 3 types to traverse a binary tree:
+#pre order ; in order ; post order
+
+#for pre-order root - left - right
+    def preorderPrint(self,start,traversal):
+        if start:
+            traversal += str(start.value + '-')
+            traversal = self.preorderPrint(start.left, traversal)
+            traversal = self.preorderPrint(start.right, traversal)
+        return traversal
+
+
 def binaryTreeOp():
-    tree1 = BinaryTree(1)
+     tree1 = BinaryTree(1)
     print(tree1.root.value)
+
 
 
 if __name__ == "__main__":
