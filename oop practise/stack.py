@@ -19,3 +19,12 @@ class Stack():
         
     def get_stack(self):
         return self.items5
+
+    def __str__(self):
+        s = ""
+        for i in range(len(self.items)):
+            s += str(self.items[i].value + "-")
+        return s
+
+    def __len__(self):
+        return len(self.items)
