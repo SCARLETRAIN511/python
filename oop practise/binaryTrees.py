@@ -80,6 +80,17 @@ class BinaryTree(object):
 
         return traversal
 
+    #height of the tree
+    def height(self,node):
+        if node is None:
+            return -1
+        leftHeight = self.height(node.left)
+        rightHeight = self.height(node.right)
+
+        return 1 + max(leftHeight,rightHeight)
+
+    
+
 
 
 def binaryTreeOp():
