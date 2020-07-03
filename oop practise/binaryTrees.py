@@ -25,7 +25,7 @@ class BinaryTree(object):
             traversal = self.preorderPrint(start.right, traversal)
         return traversal
 
-#for in rder traversal left -> root -> right
+#for in order traversal left -> root -> right
     def inOrderPrint(self,start,traversal):
         if start:
             traversal = self.inOrderPrint(start.left,traversal)
