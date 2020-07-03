@@ -89,6 +89,11 @@ class BinaryTree(object):
 
         return 1 + max(leftHeight,rightHeight)
 
+    def size(self,node):
+        if node is None:
+            return 0
+        return 1 + self.size(node.left) + self.size(node.right)
+
     
 
 
