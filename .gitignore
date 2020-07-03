@@ -10,3 +10,6 @@ Year2/.vscode/settings.json
 Year2/.vscode/settings.json
 *.json
 *.json
+oop practise/__pycache__/stack.cpython-37.pyc
+*.pyc
+*.pyc
