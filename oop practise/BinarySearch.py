@@ -21,7 +21,22 @@ def binarySearchIterative(target,data):
         else:
             low = mid + 1
     return False
-            
+        
+#use recursion to do the binary search
+def binarySearchRecursive(data,target,low,high):
+    if low > high:
+        return False
+    
+    else:
+        mid = (high + low)//2
+        if target == data[mid]:
+            return True
+        elif target < data[mid]:
+            return binarySearchRecursive(data,target,low,mid-1)
+        else:
+            return binarySearchRecursive(data,target,mid+1,high)         
+    
+
 
 
 def main():
