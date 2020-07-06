@@ -37,6 +37,23 @@ class BST:
             else:
                 return self.searchHelper(current.left,findVal)
 
+    #this is a class method
+    @classmethod
+    def isBST(cls):
+        def helper(node,lower = float("-inf"),upper = float("inf")):
+            if not Node:
+                return True
+            val = node.data
+            if val <= lower or val >= upper:
+                return False
+            if not helper(node.right,val,upper):
+                return False
+            if not helper(node.left,lower,val):
+                return False
+            return True
+        return helper(cls.root)
+
+
 
 def bstOp():
     bst1 = BST(10)
