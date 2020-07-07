@@ -39,8 +39,43 @@ def findHighestNum(data):
     return None
 
 
+#find the first occurence of the key in the list
+def findDuplicatesKey(key,data):
+    low = 0
+    high = len(data) - 1
+    while low <= high:
+        mid = (low + high) // 2
+
+        if data[mid] < key:
+            low = mid + 1
+        elif data[mid] > key:
+            high = mid - 1
+        else:
+            #if the target was finded
+            #this is an edge case
+            if mid - 1 < 0:
+                return mid
+            if data[mid - 1] != key:
+                return mid
+            high = mid - 1
+
+
+#takes a non-negative integer K and returns the largest integer whose square is less than or equal to the specfied integer K
+def intergerSquareRoot(k):
+    low = 0
+    high = k
+    while low <= high:
+        mid = (low + high) // 2
+        midSquare = mid ** 2
+        if midSquare < k:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return low - 1
+
 
 
 if __name__ == "__main__":
     print(findFixedPoint([1,2,3,4,5,55,343,894]))
     print(findHighestNum([1,2,3,4,5,3,1]))
+    print(intergerSquareRoot(222))
