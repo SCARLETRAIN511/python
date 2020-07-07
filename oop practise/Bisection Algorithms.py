@@ -69,8 +69,11 @@ def intergerSquareRoot(k):
         midSquare = mid ** 2
         if midSquare < k:
             low = mid + 1
-        else:
+        elif midSquare > k:
             high = mid - 1
+        #if it has the integer solution
+        else:
+            return mid
     return low - 1
 
 
@@ -78,4 +81,4 @@ def intergerSquareRoot(k):
 if __name__ == "__main__":
     print(findFixedPoint([1,2,3,4,5,55,343,894]))
     print(findHighestNum([1,2,3,4,5,3,1]))
-    print(intergerSquareRoot(222))
+    print(intergerSquareRoot(227))
