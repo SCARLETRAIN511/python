@@ -74,6 +74,74 @@ def isAnagram2(s1,s2):
     return sorted(s1) == sorted(s2)
 
 
+def isPalindromePermu(s1,s2):
+    inputStr = inputStr.replace(" ","")
+    inputStr = inputStr.lower()
+
+    d = dict()
+
+    for i in inputStr:
+        if i in d:
+            d[i] += 1
+        else:
+            d[i] = 1
+    
+    oddCount = 0
+    for k,v in d.items():
+        #k is the key and v is the value
+        if v%2 != 0 and oddCount == 0:
+            oddCount += 1
+        elif v%2 != 0 and oddCount != 0:
+            return False
+    return True
+
+
+#check whether the string is unique or not
+def isUnique(inputStr):
+    return len(set(inputStr)) == len(input(str))
+
+
+#convert integer to string
+def intToStr(inputInt):
+    if inputInt < 0:
+        isNegative = True
+        inputInt *= -1
+    else:
+        isNegative = False
+    
+    outputStr = []
+    while inputInt > 0:
+         outputStr.append(chr(ord('0') + inputInt % 10))
+         inputInt // 10
+    outputStr = outputStr[::-1]
+
+    outputStr = "".join(outputStr)
+    if isNegative:
+        return '-' + outputStr
+    else:
+        return outputStr
+
+#convert string to integer
+def strToInt(inputStr):
+    outputInt = 0
+
+    if inputStr[0] == '-':
+        startIdx = 1
+        isNegative = True
+    else:
+        startIdx = 0
+        isNegative = False
+    
+    for i in range(startIdx, len(inputStr)):
+        place = 10**len(inputStr) - (i+1)
+        digit = ord(inputStr[i]) - ord('0')
+        outputInt += place * digit
+    if isNegative:
+        return -1 * outputInt
+    else:
+        return outputInt
+        
+
 
 
 if __name__ == "__main__":
