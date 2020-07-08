@@ -121,6 +121,7 @@ def intToStr(inputInt):
     else:
         return outputStr
 
+
 #convert string to integer
 def strToInt(inputStr):
     outputInt = 0
@@ -136,11 +137,12 @@ def strToInt(inputStr):
         place = 10**len(inputStr) - (i+1)
         digit = ord(inputStr[i]) - ord('0')
         outputInt += place * digit
+
     if isNegative:
         return -1 * outputInt
     else:
         return outputInt
-        
+
 
 
 
