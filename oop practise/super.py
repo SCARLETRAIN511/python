@@ -26,6 +26,7 @@ obj1 = Car("Suzuki", "Grey", "2015", 4)
 obj1.printCarDetails()
 
 
+
 #without the super() function
 
 class Plane:
@@ -48,6 +49,7 @@ class Drone(Plane):
     def printCarDetails(self):
         self.printDetails()
         print("Name:", self.doors)
+
 
 dji = Drone("Dji","white","phantom",6)
 print(dji.make)
