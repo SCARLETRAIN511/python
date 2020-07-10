@@ -1,5 +1,5 @@
 #use super function for the implemention of inheritence
-
+#when using inheritence, child class can only use the non-private method and variables in the parent class
 class Vehicle:
     def __init__(self, make, color, model):
         self.make = make
@@ -14,6 +14,7 @@ class Vehicle:
 
 class Car(Vehicle):
     def __init__(self, make, color, model, doors):
+        #self parameter is not used in the initializer using super inheritence
         super().__init__(make, color, model)
         self.doors = doors
 
