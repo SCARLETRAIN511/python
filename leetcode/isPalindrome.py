@@ -6,10 +6,14 @@ class Solution:
         #to check whether the integer is the palindrome or not
         x = str(x)
         listInt = list(x)
-        print(listInt)
-        print(listInt.reverse())
-        return listInt == listInt.reverse()
+        print(listInt)       
+        return listInt == listInt[::-1]
+    
+    def isPalindrome2(self,x:int) -> bool:
+        return str(x) == str(x)[::-1]
+
+
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.isPalindrome(121))
+    print(s.isPalindrome2(121))
