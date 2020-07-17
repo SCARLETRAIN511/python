@@ -27,6 +27,7 @@ class solution:
                 cDict[c] = i
             else:
                 cDict[c] = i
+                #use this to store the maximum length
                 res = max(res,i-k)
         return res
     
