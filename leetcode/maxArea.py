@@ -15,7 +15,21 @@ class Solution:
         
         return maxArea
 
+    #use double pointers
+    def maxArea2(self,height) -> int:
+        lp,rp = 0,len(height) - 1
+        maxArea = 0
+        while lp < rp:
+            area = min(height[lp],height[rp]) * (rp - lp)
+            maxArea = max(maxArea,area)
+            if height[lp] <= height[rp]:
+                lp += 1
+            else:
+                rp -= 1
+        return maxArea
 
+
+ 
 if __name__ == "__main__":
     s = Solution()
-    print(s.maxArea([1,8,6,2,5,4,8,3,7]))
+    print(s.maxArea2([1,8,6,2,5,4,8,3,7]))
