@@ -11,7 +11,7 @@ class Solution:
         ans = list()
         for first in range(n):
             if first > 0 and nums[first] == nums[first - 1]:
-                countinue
+                continue
             third = n - 1
             target = -nums[first]
             for second in range(first + 1,n):
