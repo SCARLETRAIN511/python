@@ -6,6 +6,8 @@ class Solution:
         nums.sort()
         n = len(nums)
         best = 100000
+        
+        #use this function to update the data
         def update(cur):
             nonlocal best
             if abs(cur - target) < abs(best - target):
@@ -19,6 +21,7 @@ class Solution:
                 s = nums[i] + nums[j] + nums[k]
                 if s == target:
                     return target
+                    
                 update(s)
                 if s > target:
                     k0 = k-1
