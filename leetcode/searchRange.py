@@ -27,13 +27,14 @@ class Solution:
                 hi = mid
             else:
                 lo = mid + 1
+        #lo == high, thus no effects to return hi
         return lo
     
     
     def searchTarget2(self,nums,target):
         leftIdx = self.extremeInsetionIndex(nums,target,True)
         if leftIdx == len(nums) or nums[leftIdx] != target:
-            return [1,-1]
+            return [-1,-1]
         return [leftIdx,self.extremeInsetionIndex(nums,target,False)- 1]
 
 
