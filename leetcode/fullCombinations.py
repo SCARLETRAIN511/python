@@ -2,6 +2,8 @@
 
 #回溯算法
 
+#similar to traversal in the tree nodes
+
 class Solution:
     def permute(self,nums):
         #return the list containing the list
@@ -24,4 +26,4 @@ class Solution:
         res = []
         dfs(nums,size,0,[],used,res)
         return res
-        
+
