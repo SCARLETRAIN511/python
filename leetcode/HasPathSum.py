@@ -17,7 +17,7 @@ class Solution:
         queVal = deque([root.val])
         while queNode:
             now = queNode.popleft()
-            temo = queVal.popleft()
+            temp = queVal.popleft()
             if not now.left and not now.right:
                 if temp == sum:
                     return True
@@ -29,7 +29,7 @@ class Solution:
                 queNode.append(now.right)
                 queVal.append(now.right.val + temp)
         return False
-        
+
 
         
 
