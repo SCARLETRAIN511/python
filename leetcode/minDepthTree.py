@@ -47,6 +47,8 @@ class Solution:
             depth,root = stack.pop()
             children = [root.left,root.right]
             if not any(children):
+                minDepth = min(depth,minDepth)
+            for c in children:
                 if c:
                     stack.append((depth + 1,c))
         return minDepth
