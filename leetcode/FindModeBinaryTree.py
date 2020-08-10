@@ -2,6 +2,7 @@
 
 #find the mode in the binary tree
 from collections import deque
+import collections
 
 class TreeNode:
     def __init__(self,x):
@@ -28,24 +29,12 @@ class Solution:
                 if node.right:
                     queue.append(node.right)
         
-        nums = dict()
-        maxOcc = 0
-        maxNum = 0
-        for i in res:
-            if i in nums.keys():
-                nums[i] += 1
-            else:
-                nums[i] = 1
-        print(nums)
-        print(s)
+        tmp = collections.Counter(res).most_common()
+        for k, v in tmp:
+            if v == tmp[0][1]:
+                modeNum.append(k)
 
-        for i in nums.keys():
-            if nums[i] >= maxOcc:
-                maxOcc = nums[i]
-                maxNum = i
-        
-        return [maxNum]
-
+        return modeNum
 
 if __name__ == "__main__":
     s = Solution()
