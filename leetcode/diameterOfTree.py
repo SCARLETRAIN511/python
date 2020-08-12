@@ -18,8 +18,8 @@ class Solution:
             if not root:
                 return 0
 
-            left = depth(node.left)
-            right = depth(node.right)
+            left = depth(root.left)
+            right = depth(root.right)
 
             self.ans = max(self.ans,left + right + 1)
             return max(left,right) + 1
