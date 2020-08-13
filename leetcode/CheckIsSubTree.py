@@ -1,0 +1,25 @@
+#python3
+
+class TreeNode:
+    def __init__(self,val,left,right):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def isSubTree(self,s,t) -> bool:
+        #dfs match
+        if s == None:
+            return False
+        return self.check(s,t) or self.isSubTree(s.left,t) or self.isSubTree(s.right,t)
+    
+    def check(self,s,t):
+        if s == None and t == None:
+            return True
+        if s == None or t == None:
+            return False
+        
+        if s.val == t.val:
+            return self.check(s.left,t.left) and self.check(s.right,t.right)
+        return False
