@@ -4,6 +4,7 @@
 class Solution:
     def isPalindrome(self,s) -> bool:
         sgood = "".join(ch.lower() for ch in s if ch.isalnum())
+        #check whether all the chars in the string are number of the letter
         print(sgood)
         n = len(sgood)
         left,right = 0,n - 1
