@@ -16,6 +16,6 @@ class Solution:
         while pA != pB:
             #any pointer at the end of the linkedlist, it will start at the head of anther linkedlist
             #if there is a common sub linkedlist, they will meet at that point;
-            pA = headB if None else p1.next
-            pB = headA if None else p2.next
+            pA = headB if pA is None else p1.next
+            pB = headA if pB is None else p2.next
         return pA
