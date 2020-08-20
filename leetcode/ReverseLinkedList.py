@@ -1,17 +1,28 @@
 #python3
 
+class ListNode:
+    def __init__(self):
+        self.val = x
+        self.next = None
+
+
 class Solution:
-    def hammingWeight(self,n) -> int:
-        bits = 0
-        mask = 1
-        for i in range(32):
-            if (n and mask) != 0:
-                bits +=1
-            mask << 1
-
-        return bits
-
-
-if __name__ == "__main__":
-    s = Solution()
-    print(s.hammingWeight(10000000000000000111111111111111111111111))
+    def reverseList(self,head):
+        prev = None
+        curr = head
+        while curr != None:
+            nextTemp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nextTemp
+        
+        return prev
+    
+    #use recursion
+    def reverseList(self,head):
+        if (head == None) or head.next == None:
+            return head
+        p = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return p
