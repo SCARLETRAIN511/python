@@ -18,3 +18,4 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
     print(s.removeDuplicates([1,2,3,3,3,4,4,6]))
+    
