@@ -44,12 +44,15 @@ class Solution2:
         def backTrack(index:int):
             if index == len(digits):
                 combinations.append("".join(combination))
+                print(combinations)
             else:
                 digit = digits[index]
                 for letter in phoneMap[digit]:
                     combination.append(letter)
                     backTrack(index + 1)
+                    #进行回退操作，继续遍历第二个数字对应的字母
                     combination.pop()
+                    #递归中的第二轮遍历完之后 再改变第一个字母，进行排列
         
         backTrack(0)
         return combinations
