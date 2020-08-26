@@ -1,7 +1,9 @@
 class Solution(object):
     def twoSum(self, nums, target):
         nums_index=[(v,index) for index, v in enumerate(nums)]
+        #get the list with the value and the index
         print(nums_index)
+        #sort the list and maintain the index
         nums_index.sort()
         print(nums_index)
         begin, end=0,len(nums)-1
