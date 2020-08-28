@@ -8,12 +8,14 @@ class Solution:
         if rem:
             return False
         
+        #return the bool variable
+
         def search(groups):
             if not nums:
                 return True
             v = nums.pop()
             for i,group in enumerate(groups):
-                if group + v < target:
+                if group + v <= target:
                     groups[i] += v
                     if search(groups):
                         return True
@@ -22,4 +24,18 @@ class Solution:
                     break
             nums.append(v)
             return False
-            
+        
+        nums.sort()
+        if nums[-1] > target:
+            return False
+        while nums and nums[-1] == target:
+            nums.pop()
+            k -= 1
+        
+        return search([0] * k)
+
+
+if __name__ == "__main__":
+    s = Solution()
+    nums = [1,2,3,4,5,3,1,3]
+    print(s.canPartitionKSubsets(nums,2))
