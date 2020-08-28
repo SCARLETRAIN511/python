@@ -11,9 +11,11 @@ class solution:
         lengthOfString = 0
         for i in range(len(s)):
             if s[i] in stringLetter:
+                #set the length to zero and add length to the list
                 stringLength.append(lengthOfString)
                 lengthOfString = 0
             else:
+                #if not same, add the length 1, add the letter to the list
                 stringLetter.append(s[i])
                 lengthOfString += 1
         return max(stringLength)

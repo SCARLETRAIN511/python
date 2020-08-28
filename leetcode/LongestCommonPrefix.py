@@ -25,6 +25,8 @@ class Solution:
             idx += 1
         return str1[:idx]
 
+        
+
     #纵向扫描
     def longestCommonPrefixVertical(self,strs) -> str:
         if not strs:

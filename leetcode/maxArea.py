@@ -7,6 +7,7 @@ class Solution:
         #height is the list with the bars with different height
         #the value is the y, the index + 1 is the x value;
         maxArea = 0
+        #暴力解法
         for i in range(len(height)):
             for j in range(i + 1,len(height)):
                 area = (j-i) * min(height[i],height[j])
@@ -17,14 +18,17 @@ class Solution:
 
     #use double pointers
     def maxArea2(self,height) -> int:
+        #set the 2 pointers
         lp,rp = 0,len(height) - 1
         maxArea = 0
         while lp < rp:
             area = min(height[lp],height[rp]) * (rp - lp)
             maxArea = max(maxArea,area)
             if height[lp] <= height[rp]:
+                #if the lp is smaller, we would like to change this pointer
                 lp += 1
             else:
+                #else change another pointer
                 rp -= 1
         return maxArea
 

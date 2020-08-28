@@ -16,4 +16,4 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.isPalindrome2(121))
+    print(s.isPalindrome(121))
