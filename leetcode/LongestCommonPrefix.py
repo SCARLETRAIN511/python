@@ -20,7 +20,7 @@ class Solution:
     
     def lcp(self,str1,str2):
         #this function will compare 2 strs and find the longest common prefix
-        length, idx = min(len(str1),len(str2)),0
+        length, idx = min(len(str1),len(str2))
         while idx < length and str1[idx] == str2[idx]:
             idx += 1
         return str1[:idx]
