@@ -25,3 +25,8 @@ class Solution:
             return False
         
         return True
+
+
+if __name__ == "__main__":
+    s= Solution()
+    print(s.validTicTacToe([" X ","OXO"," X "]))
