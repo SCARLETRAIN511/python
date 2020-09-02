@@ -12,10 +12,13 @@ class Solution:
         node.next = node.next.next
 
 
+#removeNth Node from end
 #delete the last n node in the linkedlis
 class Solution2:
     def removeNthNode(self,head,n):
         length = 0
+        #储存头部
+        #哑节点
         dummy = ListNode(0)
         dummy.next = head
         first = head
@@ -27,7 +30,8 @@ class Solution2:
         nthNode = dummy
         while nth > 0:
             nth -= 1
-            dummy = dummy.next
+            nthNode = nthNode.next
         
-        dummy.next = dummy.next.next
+        nthNode.next = nthNode.next.next
+        #return the head of the linkedlist
         return dummy.next
