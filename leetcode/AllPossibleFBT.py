@@ -17,17 +17,20 @@ class Solution:
             ans = []
             for x in range(N):
                 y = N - 1 -x
+                #recursion store all the sub full binary tree
+
                 for left in self.allPossibleFBT(x):
                     for right in self.allPossibleFBT(y):
                         bns = TreeNode(0)
                         bns.left = left
                         bns.right = right
-                        ans.append(ans)
+                        ans.append(bns)
             Solution.memo[N] = ans
         
         return Solution.memo[N]
     
 
+
 if __name__ == "__main__":
     s = Solution()
-    print(s.allPossibleFBT(5))
+    print(s.allPossibleFBT(7))
