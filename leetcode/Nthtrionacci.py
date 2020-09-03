@@ -34,7 +34,6 @@ class Solution2:
         helper(37)
         return nums[n]
 
-
 #dynamic calculation
 class Solution3:
     def tribonacci(self,n):
