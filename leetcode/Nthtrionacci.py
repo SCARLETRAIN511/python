@@ -15,8 +15,8 @@ class Solution:
         return getNum(n)
 
 
+#recurrsion with memory list
 class Solution2:
-    
     def tribonacci(self,n):
 
         def helper(k):
@@ -34,7 +34,17 @@ class Solution2:
         helper(37)
         return nums[n]
 
+#dynamic calculation
+class Solution3:
+    def tribonacci(self,n):
+        nums = [0] * 38
+        nums[1] = nums[2] = 1
+        for i in range(3,38):
+            nums[i] = nums[i - 1] + nums[i - 2] + nums[i - 3]
+        
+        return nums[n]
+
 
 if __name__ == "__main__":
-    s = Solution2()
+    s = Solution3()
     print(s.tribonacci(5))
