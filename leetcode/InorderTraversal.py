@@ -22,7 +22,7 @@ class Solution:
     
 
 class Solution2:
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
+    def inorderTraversal(self, root: TreeNode):
         nodeList = []
         def inorderTraversalHelper(root):
             if root == None:
