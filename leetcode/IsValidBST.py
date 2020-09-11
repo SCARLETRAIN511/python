@@ -21,3 +21,20 @@ class Solution:
             root = root.right
         
         return True
+    
+    def isValidBST2(self,root) -> bool:
+        def isValidBST(self,root):
+            def helper(node,lower = float("-inf"),upper = float("inf")):
+                if not node:
+                    return True
+                val = node.val
+                if val <= lower or val >= upper:
+                    return False
+                
+                if not helper(node.left,lower,upper):
+                    return False
+                
+                return True
+            
+            return helper(root)
+            
