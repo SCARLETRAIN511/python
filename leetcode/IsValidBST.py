@@ -31,10 +31,11 @@ class Solution:
                 if val <= lower or val >= upper:
                     return False
                 
-                if not helper(node.left,lower,upper):
+                if not helper(node.right,val,upper):
                     return False
                 
+                if not helper(node.left,lower,val):
+                    return False
                 return True
-            
             return helper(root)
             
