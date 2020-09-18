@@ -15,8 +15,10 @@ class Solution:
         do not return anything
         '''
         preorderList = list()
+        #use the preorder traversal for the bst
         def preorderTraversal(root):
             if root:
+                preorderList.append(root)
                 preorderTraversal(root.left)
                 preorderTraversal(root.right)
         
@@ -26,4 +28,4 @@ class Solution:
         for i in range(1,size):
             prev,curr = preorderList[i-1],preorderList[i]
             prev.left = None
-            prev.right = None
+            prev.right = curr
