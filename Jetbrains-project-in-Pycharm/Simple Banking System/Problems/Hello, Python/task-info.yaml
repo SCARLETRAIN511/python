@@ -1,0 +1,13 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/5205
+status: Solved
+feedback:
+  message: <html>Passed. Congratulations! It is your first Python program that really
+    works.<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/5205">JetBrains
+    Academy</a></html>
+  time: Sat, 19 Sep 2020 12:06:28 UTC
+record: -1
