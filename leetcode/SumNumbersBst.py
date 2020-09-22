@@ -28,5 +28,5 @@ class Solution:
             if not node.left and not node.right:
                 res += int(sum)
         
-        return
+        return res
 
