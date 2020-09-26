@@ -38,6 +38,8 @@ class Solution:
         alist[rightmark] = temp
         return rightmark
 
+#method editing from qucik search
+
 if __name__ == "__main__":
     s = Solution()
     print(s.findKthLargest([1,2,3,4,2,3,2,3313],3))
