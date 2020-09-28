@@ -3,11 +3,12 @@ import collections
 
 
 class Solution:
+    #bfs
     def orangeRotting(self,grid) -> int:
         #for the given gird, u have the 0,1,2, 0 means no orange, 1 means fresh orange and 2 means rotten orange
         #every minute will make the fresh orange near the rotten orange rotting how many minutes will all orange rotten?
         #if not possible, return -1
-        r,c = len(grid),len(grid[0])
+        lenR,lenC = len(grid),len(grid[0])
         queue = collections.deque()
         for r, row in enumerate(grid):
             for c, val in enumerate(row):
@@ -18,7 +19,7 @@ class Solution:
         def neighbours(r,c):
             for nr,nc in ((r-1,c),(r,c-1),(r+1,c),(r,c+1)):
                 #get the positions of the oranges around that rotten orange
-                if 0 <= nr < r and 0 <=nc < c:
+                if 0 <= nr < lenR and 0 <= nc < lenC:
                     yield nr,nc#yeild can turn this function into an iterable object
 
         d = 0
@@ -36,4 +37,3 @@ class Solution:
 
         return d
 
-        
