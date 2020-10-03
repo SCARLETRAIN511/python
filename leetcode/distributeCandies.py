@@ -3,6 +3,7 @@
 class Solution:
     def ditributeCandies(self,candies:int,numOfChildren:int):
         #return a list
+        #Iniliaze the list
         candiesList = [0] * numOfChildren
         i = 0
         while candies > 0:
