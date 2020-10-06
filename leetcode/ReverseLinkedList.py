@@ -11,12 +11,17 @@ class Solution:
         prev = None
         curr = head
         while curr != None:
+            #store the next node
             nextTemp = curr.next
+
+            #star reversing
             curr.next = prev
+            #move the node to the next
             prev = curr
             curr = nextTemp
         
         return prev
+    
     
     #use recursion
     def reverseList(self,head):
