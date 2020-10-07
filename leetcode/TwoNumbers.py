@@ -20,4 +20,7 @@ class Solution:
             ret.next = self.addTwoNumbers(l1.next,l2.next,c)
             # use recursion until we can not jump into this loop    
         return ret
-        
+
+if __name__ == "__main__":
+    i = 123
+    print(i[1])
