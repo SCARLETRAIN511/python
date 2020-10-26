@@ -3,7 +3,10 @@
 class Solution:
     def findNumberIn2DArray(self,matrix,target:int) -> bool:
         #matrix is list[list]
+        #regard the matrix as a bst
+
         i,j = len(matrix) - 1,0
+        #search
         while i >= 0 and j < len(matrix[0]):
             if matrix[i][j] > target:
                 i -= 1
