@@ -14,7 +14,7 @@ class Solution:
         for _ in range(k):
             if not former:
                 return
-                former = former.next
+            former = former.next
         
         while former:
             former,latter = former.next,latter.next
