@@ -15,6 +15,7 @@ class Solution:
         
         return min(f[n-1])
     
+    #dynamic programming
     def minimumTotal2(self,triangle):
         n = len(triangle)
         f = [0] * n
