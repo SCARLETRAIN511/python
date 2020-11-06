@@ -11,3 +11,7 @@ class Solution:
                 mark |= (1<<moveBit)
         
         return True
+
+if __name__ == "__main__":
+    s = Solution()
+    print(s.isUnique("hell0"))
