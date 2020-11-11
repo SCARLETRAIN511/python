@@ -3,3 +3,6 @@
 
 def method1():
     pass
+
+def method2():
+    pass
