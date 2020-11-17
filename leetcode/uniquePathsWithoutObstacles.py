@@ -8,7 +8,7 @@ class Solution:
 
         m,n = len(obstacleGrid),len(obstacleGrid[0])
 
-        dp = [[0]*n for _ in range(m)]
+        dp = [[0]*n for _ in range(m)]#********
 
         for i in range(0,m):
             if obstacleGrid[i][0] == 1:
