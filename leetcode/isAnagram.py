@@ -2,12 +2,15 @@
 
 class Solution:
     def isAnagram(self,s:str,t:str)-> bool:
-        strSet = set()
+        if len(s) != len(t):
+            return False
+        strSet1 = []
         for i in s:
-            strSet.add(i)
+            strSet1.append(i)
         
         for j in t:
-            if j not in strSet:
-                return False
-
+            if j in strSet1:
+                strSet1.remove(j)
+        if strSet1 != []:
+            return False
         return True
