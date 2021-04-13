@@ -14,3 +14,27 @@ class Solution:
             head = head.next
         
         return None
+
+def fun1():
+    a = int(input())
+    b = int(input())
+    c = a + b
+    print(c)
+
+import sys
+
+if __name__ == "__main__":
+    # 读取第一行的n
+    str1 = list(sys.stdin.readline().strip())
+    print(str1)
+    newStr = []
+    for i in str1:
+        if i in newStr:
+            continue
+        else:
+            newStr.append(i)
+    final = ""
+    for j in newStr:
+        final += j
+    print(final)
+

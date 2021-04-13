@@ -102,7 +102,7 @@ def mergeSort(alist):
             k+=1
     return alist
 
-
+#second way doint merge sort
 def mergeSort1(alist):
     if len(alist) <= 1:
         return alist
@@ -161,5 +161,5 @@ def partition(alist, first, last):
 
 if __name__ == "__main__":
     a = [1,42,2,33,331,56,63,2]
-    print(quickSort(a))
+    print(mergeSort1(a))
     
